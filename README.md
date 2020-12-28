@@ -12,6 +12,7 @@
     bootstrap
     Flex
  Server side:
+    node.js
     express.js
     mongodb
  
