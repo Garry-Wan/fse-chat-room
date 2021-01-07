@@ -9,7 +9,7 @@
  Client side:
     Html5
     css
-    bootstrap
+    bootstrap 4.2.1
     Flex
  Server side:
     node.js
