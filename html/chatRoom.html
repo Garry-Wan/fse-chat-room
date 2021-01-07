@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+    <title>FSE Chat Room</title>
+</head>
+<style>
+    .container-fluid{
+        display: flex;
+        flex-direction: column;
+        /*-webkit-box-orient: vertical;*/
+        /*-webkit-box-direction: normal;*/
+        justify-content: space-between;
+        align-items: center;
+    }
+    .name{
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .top{
+        width: 80%;
+        border: 1px solid #000000;
+        border-radius: 20px;
+        flex:1;
+    }
+    .bot{
+        height: 40px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    .input-text{
+        height: 40px;
+        border-radius: 10px;
+
+    }
+    .btn-send{
+        height: 40px;
+        border-radius: 10px;
+    }
+
+
+</style>
+<body>
+<div class="container-fluid min-vh-100">
+        <div class="name">Chat Room</div>
+        <div class="top">
+            <ul class="info">
+            </ul>
+        </div>
+        <div class="bot col-sm-8">
+                <input class="col-sm-8 input-text" type="text" id="msg" >
+                <button  class="btn btn-success col-sm-2 btn-send " id="btn">Send</button>
+    </div>
+
+</div>
+</body>
+</html>
