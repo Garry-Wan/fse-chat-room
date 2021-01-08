@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="25fb6fbf-7db5-44e6-848f-6e87a08a257c" name="Default Changelist" comment="modify by using bootstrap 4.2.1 and flex layout">
+    <list default="true" id="25fb6fbf-7db5-44e6-848f-6e87a08a257c" name="Default Changelist" comment="add chatRoom page">
+      <change beforePath="$PROJECT_DIR$/.idea/fse-chat-room.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/fse-chat-room.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/chatRoom.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/chatRoom.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/logging.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/logging.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -13,6 +16,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -40,12 +44,15 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../bill-web" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/js" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="JavaScript.Libraries" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\code\fse-chat-room\js" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\code\fse-chat-room\html" />
       <recent name="E:\code\fse-chat-room" />
@@ -73,7 +80,10 @@
       <workItem from="1609913941322" duration="5145000" />
       <workItem from="1609937122428" duration="6283000" />
       <workItem from="1609944117668" duration="6384000" />
-      <workItem from="1609982373151" duration="15699000" />
+      <workItem from="1609982373151" duration="18921000" />
+      <workItem from="1610022179733" duration="1348000" />
+      <workItem from="1610071829613" duration="1619000" />
+      <workItem from="1610073484479" duration="23138000" />
     </task>
     <task id="LOCAL-00001" summary="add by Garry 2020">
       <created>1609162872837</created>
@@ -124,7 +134,21 @@
       <option name="project" value="LOCAL" />
       <updated>1609991288595</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="add chatRoom page">
+      <created>1610007387507</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1610007387507</updated>
+    </task>
+    <task id="LOCAL-00009" summary="add chatRoom page">
+      <created>1610007406331</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1610007406331</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -150,6 +174,11 @@
     <MESSAGE value="add logging page" />
     <MESSAGE value="add css style to html" />
     <MESSAGE value="modify by using bootstrap 4.2.1 and flex layout" />
-    <option name="LAST_COMMIT_MESSAGE" value="modify by using bootstrap 4.2.1 and flex layout" />
+    <MESSAGE value="add chatRoom page" />
+    <option name="LAST_COMMIT_MESSAGE" value="add chatRoom page" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
