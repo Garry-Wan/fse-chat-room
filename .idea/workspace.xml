@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="25fb6fbf-7db5-44e6-848f-6e87a08a257c" name="Default Changelist" comment="add http request by using axios">
-      <change beforePath="$PROJECT_DIR$/js/network/action.js" beforeDir="false" />
-    </list>
+    <list default="true" id="25fb6fbf-7db5-44e6-848f-6e87a08a257c" name="Default Changelist" comment="add http request by using axios" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -95,7 +93,7 @@
       <workItem from="1610253349910" duration="3081000" />
       <workItem from="1610268846289" duration="16281000" />
       <workItem from="1610371128847" duration="463000" />
-      <workItem from="1610371683020" duration="1147000" />
+      <workItem from="1610371683020" duration="1831000" />
     </task>
     <task id="LOCAL-00001" summary="add by Garry 2020">
       <created>1609162872837</created>
