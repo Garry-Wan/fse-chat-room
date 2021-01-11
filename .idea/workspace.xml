@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="25fb6fbf-7db5-44e6-848f-6e87a08a257c" name="Default Changelist" comment="add dialog UI">
+    <list default="true" id="25fb6fbf-7db5-44e6-848f-6e87a08a257c" name="Default Changelist" comment="add http request by using axios">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/chatRoom.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/chatRoom.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/logging.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/login.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,6 +94,8 @@
       <workItem from="1610250454268" duration="2573000" />
       <workItem from="1610253349910" duration="3081000" />
       <workItem from="1610268846289" duration="16281000" />
+      <workItem from="1610371128847" duration="463000" />
+      <workItem from="1610371683020" duration="464000" />
     </task>
     <task id="LOCAL-00001" summary="add by Garry 2020">
       <created>1609162872837</created>
@@ -167,7 +167,14 @@
       <option name="project" value="LOCAL" />
       <updated>1610102043547</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="add http request by using axios">
+      <created>1610371364527</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1610371364527</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -195,7 +202,8 @@
     <MESSAGE value="modify by using bootstrap 4.2.1 and flex layout" />
     <MESSAGE value="add chatRoom page" />
     <MESSAGE value="add dialog UI" />
-    <option name="LAST_COMMIT_MESSAGE" value="add dialog UI" />
+    <MESSAGE value="add http request by using axios" />
+    <option name="LAST_COMMIT_MESSAGE" value="add http request by using axios" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
