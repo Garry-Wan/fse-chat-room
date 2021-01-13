@@ -29,7 +29,6 @@ app.all('*', function(req, res, next) {
   next();
 });
 app.use('/user', usersRouter);
-
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
@@ -50,24 +49,23 @@ app.use(function(err, req, res, next) {
 // const express = require('express')
 //
 // const app = express()
-const server = require('http').Server(app)
-
-const io = require('socket.io')(server, {
-  cors: {
-    origin: '*',
-  }
-});
-// const io = require('socket.io')(server)
-io.on('connection', function (conn) {
-  console.log('server websocket')
-  conn.on('msg', function (obj) {
-    console.log('msg', obj);
-  });
-});
-
-server.listen('8002', () => {
-  console.log('init websocket')
-  console.log('open Browser on http://localhost:8002')
-})
+// const server = require('http').Server(app)
+//
+// const io = require('socket.io')(server, {
+//   cors: {
+//     origin: '*',
+//   }
+// });
+// io.on('connection', function (conn) {
+//   console.log('server websocket connection')
+//   conn. on('msg', function (obj) {
+//     console.log('msg', obj);
+//   });
+// });
+// server.listen('8002', () => {
+//   console.log('init websocket')
+//   console.log('open Browser on http://localhost:8002')
+// })
+// exports.io = io;
 
 module.exports = app;

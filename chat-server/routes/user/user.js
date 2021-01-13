@@ -1,7 +1,8 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const db = require('../../model/creatdb')
-const util = require('../../common/util')
+const db = require('../../model/creatdb');
+const util = require('../../common/util');
+const msg = require('./message')
 const user = express();
 user.use(bodyParser.urlencoded({extended: false}))
 user.post('/login',((req, res) => {
@@ -18,6 +19,7 @@ user.post('/login',((req, res) => {
             doc = doc._doc;
             if(doc.password === login.password){
                 res.send(JSON.stringify(util.success(doc)))
+                msg.connect()
             }
             else {
                 res.send(JSON.stringify(util.failMessage("username or password is incorrect")))

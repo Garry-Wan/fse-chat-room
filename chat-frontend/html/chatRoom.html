@@ -157,30 +157,19 @@
 
 
 
+
+
+
+
 </script>
 <script>
 
     $(function () {
 
-        var ws = io('ws://localhost:8002',{ transport : ['websocket'] });
-            ws.on('connect', function (e) {
-                console.log("server connect success");
-                ws.emit('msg', "client send");
-            })
-        // ws.onopen = function(e){
-        //     console.log("open");
-        //     ws.send("hello");
-        // }
-        // ws.onmessage = function(e){
-        //     console.log(e.data);
-        // }
-        // ws.onclose = function(e){
-        //     console.log("close");
-        // }
-        // ws.onerror = function(e){
-        //     console.log(e.data);
-        // }
-
+        var ws = io('ws://localhost:8002', {transport: ['websocket']});
+        ws.on('connect', function (e) {
+            console.log("server connect success");
+        })
 
         // $("#message").tmpl({
         //     chat: {
@@ -221,24 +210,18 @@
         //     }
         // }).appendTo("#chat")
         $(".btn-send").click(function () {
-            $("#message").tmpl({
-                chat:{
-                    "username": $.cookie("username"),
-                    "message": $("#msg").val(),
-                    "date": moment().format('MMMM Do YYYY, h:mm:ss')
-                },
-            }).appendTo("#chat")
-        },
-        // ws.onopen = function(e){
-        //     console.log("open");
-        //     ws.send( $("#msg").val());
-        // }
-        //     ws.on('connect', function (e) {
-        //         console.log("server connect success");
-        //         ws.emit('msg', "client send");
-        //     })
+                var msg = $("#msg").val()
+                $("#message").tmpl({
+                    chat: {
+                        "username": $.cookie("username"),
+                        "message": msg,
+                        "date": moment().format('MMMM Do YYYY, h:mm:ss')
+                    },
+                }).appendTo("#chat")
+                ws.emit('msg', msg);
+                $("#msg").val('')
+            },
         )
-
 
 
     })

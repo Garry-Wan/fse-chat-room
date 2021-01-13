@@ -2,20 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="165b7185-3dc6-4299-8740-ab0cb27ee519" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../chat-frontend/common/socket.io.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../chat-frontend/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../chat-frontend/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../chat-frontend/common/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/../chat-frontend/common/config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../chat-frontend/common/webUtils.js" beforeDir="false" afterPath="$PROJECT_DIR$/../chat-frontend/common/webUtils.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../chat-frontend/html/chatRoom.html" beforeDir="false" afterPath="$PROJECT_DIR$/../chat-frontend/html/chatRoom.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../chat-frontend/html/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/../chat-frontend/html/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../chat-frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../chat-frontend/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../chat-frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../chat-frontend/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/www" beforeDir="false" afterPath="$PROJECT_DIR$/bin/www" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/creatdb.js" beforeDir="false" afterPath="$PROJECT_DIR$/model/creatdb.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/user/message.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/user/message.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/user/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/user/user.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,7 +36,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="javascript.nodejs.core.library.configured.version" value="14.15.4" />
     <property name="javascript.nodejs.core.library.typings.version" value="14.14.20" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../2019年8月黑马前端（整理完好）" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../chat-frontend" />
     <property name="nodejs_interpreter_path" value="node" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="ts.external.directory.path" value="D:\Program Files\JetBrains\WebStorm 2020.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
@@ -75,6 +67,8 @@
       <workItem from="1610413936418" duration="2341000" />
       <workItem from="1610501772743" duration="2560000" />
       <workItem from="1610507900810" duration="14937000" />
+      <workItem from="1610539502801" duration="3305000" />
+      <workItem from="1610542866723" duration="4134000" />
     </task>
     <servers />
   </component>
@@ -91,23 +85,14 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/routes/user/user.js</url>
-          <line>7</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/routes/user/user.js</url>
-          <line>9</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/routes/user/user.js</url>
-          <line>30</line>
+          <line>32</line>
           <option name="timeStamp" value="7" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
@@ -116,14 +101,21 @@
           <option name="timeStamp" value="8" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/model/creatdb.js</url>
-          <line>81</line>
-          <option name="timeStamp" value="10" />
+          <url>file://$PROJECT_DIR$/app.js</url>
+          <line>60</line>
+          <option name="timeStamp" value="13" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/routes/user/user.js</url>
-          <line>12</line>
-          <option name="timeStamp" value="11" />
+          <url>file://$PROJECT_DIR$/app.js</url>
+          <line>61</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/app.js</url>
+          <line>62</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="15" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -1,23 +1,28 @@
-const express = require('express')
+const express = require('express');
+const app=require("../../app")
+const msg = express();
 
-const app = express()
 const server = require('http').Server(app)
 
-const io = require('socket.io')(server)
-//online user
-var onlineUsers = {};
-//online user number
-var onlineCount = 0;
+const io = require('socket.io')(server, {
+    cors: {
+        origin: '*',
+    }
+});
 
-io.on('connection', function (conn) {
-    console.log('server websocket')
+server.listen('8002', () => {
+    console.log('init websocket')
+    console.log('open Browser on http://localhost:8002')
+})
+
+
+msg.connect = function () {
+    io.on('connection', function (conn) {
+    console.log('web server websocket')
     conn.on('msg', function (obj) {
         console.log('msg', obj);
     });
 });
-
-server.listen('8001', () => {
-    console.log('init websocket')
-    console.log('open Browser on http://localhost:8001')
-})
+}
+module.exports = msg
 
