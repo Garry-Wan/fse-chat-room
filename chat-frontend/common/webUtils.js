@@ -10,6 +10,7 @@ export default {
       FindAll: '/user/login',
       LoginUser:'/user/login',
       UpdateUser: '/user/update'
+
     }
   },
   api: {
@@ -69,5 +70,6 @@ export default {
       }
       return url
     }
-  }
+  },
+
 }

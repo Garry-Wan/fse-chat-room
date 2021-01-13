@@ -10,6 +10,7 @@ const  options ={
 mongoose.connect(databaseUrl, options)
     .then(() => console.log('database connect success'))
     .catch((err) => console.log('database connect fail'+err))
+
 const userSchema = new mongoose.Schema({
     username: {
         type: String,
@@ -67,7 +68,7 @@ const msgSchema = new mongoose.Schema({
     }
 );
 const User = mongoose.model('user', userSchema);
-const msg = mongoose.model('msg', msgSchema);
+const Msg = mongoose.model('msg', msgSchema);
 const db ={}
 db.createUser =function (user,callback) {
     user.creatTime = new Date();
@@ -82,5 +83,13 @@ db.getUser =function (username,callback) {
 }
 db.findAllUser = function (callback) {
     User.find({},callback)
+}
+db.createMsg = function (msg,callback) {
+     msg.creatTime = new Date();
+     let dbMsg = Msg.create(msg,callback)
+     console.log(dbMsg)
+}
+db.findAllMsg = function (callback) {
+    Msg.find({},callback)
 }
 module.exports = db;

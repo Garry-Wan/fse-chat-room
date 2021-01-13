@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "dependencies": {
     "jquery-templates": "^1.0.0",
-    "jquery.cookie": "^1.4.1"
+    "jquery.cookie": "^1.4.1",
+    "socket.io": "^3.0.5"
   },
   "scripts": {
     "start": "webpack-dev-server --devtool eval --progress --colors --hot",

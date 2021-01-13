@@ -132,14 +132,15 @@
             }
             let user = {username:username, password:uPassword};
             axios.request({
-                url: config.LoginUser,
+                url: config.loginUser,
                 method: "post",
                 data: user
             }).then(res => {
                 if(res.data.code === 0){
-                    showMessage("login success, Enter chat room");
+                    // showMessage("login success, Enter chat room");
                     $.cookie("username", res.data.data.username)
                     window.location.href="chatRoom.html"
+
                 }else {
                     showMessage("login fail,"+res.data.message);
                 }

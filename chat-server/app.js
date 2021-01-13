@@ -46,4 +46,28 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
+//websocket
+// const express = require('express')
+//
+// const app = express()
+const server = require('http').Server(app)
+
+const io = require('socket.io')(server, {
+  cors: {
+    origin: '*',
+  }
+});
+// const io = require('socket.io')(server)
+io.on('connection', function (conn) {
+  console.log('server websocket')
+  conn.on('msg', function (obj) {
+    console.log('msg', obj);
+  });
+});
+
+server.listen('8002', () => {
+  console.log('init websocket')
+  console.log('open Browser on http://localhost:8002')
+})
+
 module.exports = app;

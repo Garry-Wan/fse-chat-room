@@ -1,17 +1,30 @@
 // require("../common/axios.js");
+// document.write("<script language=javascript src=’./socket.io.js’></script>");
 let baseUrl = 'http://localhost:8001'
-const config ={
-    FindAll: baseUrl + '/user/login',
-    LoginUser:baseUrl + '/user/login',
-    UpdateUser: baseUrl + '/user/update'
+const config = {
+    findAll: baseUrl + '/user/login',
+    loginUser: baseUrl + '/user/login',
+    updateUser: baseUrl + '/user/update',
+    websocketConnect: baseUrl + '/websocket/socketServer.do'
 }
-// function post(url, data){
-//     axios.request({
-//         url: url,
-//         method: "post",
-//         data: data,
-//         // headers: {
-//         //     // 'ACCESS_TOKEN': ''
-//         // }
+
+// var ws = io('ws://localhost:8002');
+//     ws.on('connect', function (e) {
+//         console.log("server connect success");
+//         ws.emit('msg', "client send");
 //     })
+
+// const ws = new WebSocket(config.websocketConnect);
+// ws.onopen = function(){
+//     console.log("open");
+//     ws.send("hello");
+// }
+// ws.onmessage = function(e){
+//     console.log(e.data);
+// }
+// ws.onclose = function(e){
+//     console.log("close");
+// }
+// ws.onerror = function(e){
+//     console.log(e.data);
 // }
