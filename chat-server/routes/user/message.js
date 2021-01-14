@@ -13,23 +13,20 @@ var onlineUsers = {};
 var onlineCount = 0;
 io.on('connection', function (conn) {
     conn.on('login', function (obj) {
-        console.log('login', obj);
+        console.log( obj.username +'join in  chat room');
+        conn.name = obj.username
         if (!onlineUsers.hasOwnProperty(obj.username)) {
-            onlineUsers[obj.username] = {
-                id: obj.username,
-                conn: conn
-            };
+            onlineUsers[obj.username] = obj.username;
             onlineCount++;
+            console.log('user connection '+onlineUsers[obj.username])
             console.log('user connection number:   ' + onlineCount)
         }
     });
     conn.on('disconnect', function () {
-        if (onlineUsers.hasOwnProperty(conn.username)) {
-            var obj = {
-                id: obj.username,
-                conn: conn
-            };
-            delete onlineUsers[conn.username];
+        if (onlineUsers.hasOwnProperty(conn.name)) {
+            var obj= { username: onlineUsers[conn.name] };
+            console.log('user disconnection '+onlineUsers[conn.name])
+            delete onlineUsers[conn.name];
             onlineCount--;
             console.log('disconnection user connection number:' + onlineCount)
         }
