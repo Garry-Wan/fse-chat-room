@@ -13,8 +13,6 @@
     .container-fluid {
         display: flex;
         flex-direction: column;
-        /*-webkit-box-orient: vertical;*/
-        /*-webkit-box-direction: normal;*/
         justify-content: space-between;
         align-items: center;
     }
@@ -59,10 +57,6 @@
         border-radius: 10px;
     }
 
-    .msg-li {
-        /*display: flex;*/
-        /*font-size: 0px;*/
-    }
 
     .username {
         /*display: inline-block;*/
@@ -78,8 +72,18 @@
         border: 1px solid #007bff;
     }
 
-    .span {
-        /*flex: 1;*/
+    .username-other {
+        /*display: inline-block;*/
+        font-size: 15px;
+        border-radius: 30px;
+        background-color: #b3d7ff;
+        width: 50px;
+        height: 50px;
+        line-height: 50px;
+        text-align: center;
+        vertical-align: middle;
+        color: #fff;
+        border: 1px solid #007bff;
     }
 
     .msg-text {
@@ -89,7 +93,18 @@
     .time-text {
         font-size: 10px;
     }
-
+    .me{
+        padding-top: 10px;
+    }
+    .other{
+        display: flex;
+        padding-top: 10px;
+        justify-content: flex-end;
+        padding-right: 0px;
+    }
+    .other-msg{
+        padding-right: 20px;
+    }
 </style>
 <body>
 <div class="container-fluid min-vh-100">
@@ -98,36 +113,7 @@
     </div>
     <div class="top">
         <div class="info row" id="chat">
-            <!--            <div class="col-5 row" style="padding-left: 30px;">-->
-            <!--                <div class="username col-2 rounded-circle" style="width: 50px;height:50px;padding:0px;flex:none;">${username}</div>-->
-            <!--                <div class="span col-10 text-left">-->
-            <!--                    <div class="msg-text row">${message}</div>-->
-            <!--                    <div class="time-text row">${date}</div>-->
-            <!--                </div>-->
-            <!--            </div>-->
-            <!--            <div class="col-2 row">-->
-            <!--                <div class="span col-10 text-center">-->
-            <!--                    <div class="msg-text row">${message}</div>-->
-            <!--                    <div class="time-text row">${date}</div>-->
-            <!--                </div>-->
-            <!--            </div>-->
-            <!--            <div class="col-5 row">-->
-            <!--                <div class="span col-10 flex ">-->
-            <!--                    <div class="msg-text row " style="justify-content: flex-end">-->
-            <!--                        <div class="text-right">${message}</div>-->
-            <!--                    </div>-->
-            <!--                    <div class="time-text row text-right" style="justify-content: flex-end">-->
-            <!--                        <div class="text-right">${date}</div>-->
-            <!--                    </div>-->
-            <!--                </div>-->
-            <!--                <div class="username col-2 rounded-circle" style="width: 50px;height:50px;padding:0px;flex:none;">${username}</div>-->
-            <!--            </div>-->
         </div>
-        <!--        <ul class="info col-sm-2" id="loginInfo">-->
-        <!--            -->
-        <!--        </ul>-->
-        <!--        <ul class="info col-sm-5" id="me" style="float: right;">-->
-        <!--        </ul>-->
     </div>
     <div class="bot col-sm-8">
         <input class="col-sm-8 input-text" type="text" id="msg">
@@ -139,36 +125,57 @@
 <script type="text/javascript" src="../common/jquery.tmpl.js"></script>
 <script src="../common/socket.io.js"></script>
 <script type="text/x-jquery-tmpl" id="message">
-    <div class="col-5 row" style="padding-left: 30px;">
-                {{if chat.message === undefined}}
-                <div>${chat.username}</div>
+   {{if chat.username == "me"}}
+        <div class="col-12 row me" style="padding-left: 30px;">
+                <div class="username">${chat.username}</div>
                 <div class="span col-10 text-left">
                     <div class="msg-text row">${chat.message}</div>
-                    <div class="time-text row">${chat.date}</div>
+                        <div class="time-text row">${chat.date}</div>
                 </div>
-                {{else}}
-                <div class="username col-2 rounded-circle" style="width: 50px;height:50px;padding:0px;flex:none;">${chat.username}</div>
-                <div class="span col-10 text-left">
-                    <div class="msg-text row">${chat.message}</div>
-                    <div class="time-text row">${chat.date}</div>
-                </div>
-                {{/if}}
-    </div>
-
-
-
-
-
-
+        </div>
+    {{else}}
+         <div class="col-12 row other ">
+            <div class="span text-right other-msg">
+                <div class="msg-text row text-right">${chat.message}</div>
+                <div class="time-text row text-right">${chat.date}</div>
+            </div>
+            <div class="username-other">${chat.username}</div>
+        {{/if}}
+   </div>
 
 </script>
 <script>
 
     $(function () {
-
         var ws = io('ws://localhost:8002', {transport: ['websocket']});
         ws.on('connect', function (e) {
             console.log("server connect success");
+            ws.emit('login', {username: $.cookie("username")})
+        })
+        ws.on('receiveMsg', function (data) {
+            console.log("receiveMsg from server")
+            if (data.username == $.cookie("username") )
+            {
+                $("#message").tmpl({
+                    chat: {
+                        "username": "me",
+                        "message": data.msg,
+                        "date": moment().format('MMMM Do YYYY, h:mm:ss')
+                    },
+                }).appendTo("#chat")
+
+            }
+            else {
+                $("#message").tmpl({
+                    chat: {
+                        "username": data.username,
+                        "message": data.msg,
+                        "date": moment().format('MMMM Do YYYY, h:mm:ss')
+                    },
+                }).appendTo("#chat")
+
+            }
+
         })
 
         // $("#message").tmpl({
@@ -210,69 +217,16 @@
         //     }
         // }).appendTo("#chat")
         $(".btn-send").click(function () {
-                var msg = $("#msg").val()
-                $("#message").tmpl({
-                    chat: {
-                        "username": $.cookie("username"),
-                        "message": msg,
-                        "date": moment().format('MMMM Do YYYY, h:mm:ss')
-                    },
-                }).appendTo("#chat")
-                ws.emit('msg', msg);
+                var usermsg = $("#msg").val()
+                if (!usermsg) {
+                    showMessage(" msg should not be empty")
+                    return;
+                }
+                ws.emit('sendMsg', {username: $.cookie("username"), msg: $("#msg").val()});
                 $("#msg").val('')
             },
         )
-
-
     })
 </script>
 </body>
 </html>
-
-
-<!--<div class="col-2 row">-->
-<!--    <div class="span col-10 text-center">-->
-<!--        <div class="msg-text row">${loginInfo.message}</div>-->
-<!--        <div class="time-text row">${loginInfo.date}</div>-->
-<!--    </div>-->
-<!--</div>-->
-
-<!--<div class="col-5 row" style="margin-left:75px">-->
-<!--    <div class="span col-10 flex ">-->
-<!--        <div class="msg-text row" style="justify-content: flex-end">-->
-<!--            <div class="text-right">${me.message}</div>-->
-<!--        </div>-->
-<!--        <div class="time-text row text-right" style="justify-content: flex-end">-->
-<!--            <div class="text-right">${me.date}</div>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--    {{if me.message === undefined}}-->
-<!--    <div>${me.username}</div>-->
-<!--    {{else}}-->
-<!--    <div class="username col-2 rounded-circle" style="width: 50px;height:50px;padding:0px;flex:none;">${me.username}</div>-->
-<!--    {{/if}}-->
-<!--</div>-->
-<!--// var li = $("<li></li>");-->
-<!--// var username = $("<text>")-->
-<!--    // var span = $("<span>")-->
-<!--            // var msgText = $("<text></text>")-->
-<!--            // var br = $("<br>")-->
-<!--            // var time = $("<text></text>")-->
-<!--            // var timezone = moment().format('MMMM Do YYYY, h:mm:ss')-->
-<!--            // var name = "Garry"-->
-<!--            // username.html(name)-->
-<!--            // msgText.html($(".input-text").val())-->
-<!--            // time.html(timezone)-->
-<!--            // $(username).addClass("username")-->
-<!--            // $(msgText).addClass("msg-text");-->
-<!--            // $(br).css("height", 5)-->
-<!--            // $(time).addClass("time-text")-->
-<!--            // $(span).addClass("span")-->
-<!--            // $(span).append(msgText);-->
-<!--            // $(span).append(br);-->
-<!--            // $(span).append(time);-->
-<!--            // $(li).addClass("msg-li")-->
-<!--            // $(li).append(username)-->
-<!--            // $(li).append(span)-->
-<!--            // $("ul").append(li);-->
-<!--            // $(".input-text").val("")-->

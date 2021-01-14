@@ -19,7 +19,7 @@ user.post('/login',((req, res) => {
             doc = doc._doc;
             if(doc.password === login.password){
                 res.send(JSON.stringify(util.success(doc)))
-                msg.connect()
+                // msg.connect();
             }
             else {
                 res.send(JSON.stringify(util.failMessage("username or password is incorrect")))
