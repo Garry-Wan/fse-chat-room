@@ -2,7 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="25fb6fbf-7db5-44e6-848f-6e87a08a257c" name="Default Changelist" comment="modify file name">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../chat-server/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../chat-server/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../chat-server/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/../chat-server/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../chat-server/model/creatdb.js" beforeDir="false" afterPath="$PROJECT_DIR$/../chat-server/model/creatdb.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../chat-server/node_modules/nodejs-websocket/.jshintrc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../chat-server/node_modules/nodejs-websocket/.travis.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../chat-server/node_modules/nodejs-websocket/Connection.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../chat-server/node_modules/nodejs-websocket/HISTORY.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../chat-server/node_modules/nodejs-websocket/InStream.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../chat-server/node_modules/nodejs-websocket/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../chat-server/node_modules/nodejs-websocket/OutStream.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../chat-server/node_modules/nodejs-websocket/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../chat-server/node_modules/nodejs-websocket/Server.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../chat-server/node_modules/nodejs-websocket/frame.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../chat-server/node_modules/nodejs-websocket/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../chat-server/node_modules/nodejs-websocket/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../chat-server/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../chat-server/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../chat-server/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../chat-server/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../chat-server/routes/user/message.js" beforeDir="false" afterPath="$PROJECT_DIR$/../chat-server/routes/user/message.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../chat-server/routes/user/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/../chat-server/routes/user/user.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,7 +43,7 @@
         <option name="title" value="All" />
       </GitPushTagMode>
     </option>
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="ProjectId" id="1mHsQhpK44ZZwXM4mppkgYn1FBl" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -42,7 +60,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/common" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
     <property name="ts.external.directory.path" value="D:\Program Files\JetBrains\WebStorm 2020.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
@@ -50,11 +68,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\code\fse-chat-room\chat-frontend\common" />
       <recent name="E:\code\fse-chat-room\common" />
       <recent name="E:\code\1" />
       <recent name="E:\code\fse-chat-room\js\login" />
       <recent name="E:\code\fse-chat-room\js\network" />
-      <recent name="E:\code\fse-chat-room\js" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\code\fse-chat-room\common" />
@@ -97,6 +115,15 @@
       <workItem from="1610371128847" duration="463000" />
       <workItem from="1610371683020" duration="2000000" />
       <workItem from="1610506910264" duration="475000" />
+      <workItem from="1610507589184" duration="17850000" />
+      <workItem from="1610539526708" duration="1765000" />
+      <workItem from="1610542856386" duration="3088000" />
+      <workItem from="1610547120173" duration="2000" />
+      <workItem from="1610585354914" duration="20881000" />
+      <workItem from="1610614175612" duration="13000" />
+      <workItem from="1610614370476" duration="449000" />
+      <workItem from="1610616233275" duration="12187000" />
+      <workItem from="1610672426639" duration="18029000" />
     </task>
     <task id="LOCAL-00001" summary="add by Garry 2020">
       <created>1609162872837</created>

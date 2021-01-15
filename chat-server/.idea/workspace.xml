@@ -1,11 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="165b7185-3dc6-4299-8740-ab0cb27ee519" name="Default Changelist" comment="">
+    <list default="true" id="165b7185-3dc6-4299-8740-ab0cb27ee519" name="Default Changelist" comment="add disconnect tips">
       <change beforePath="$PROJECT_DIR$/../chat-frontend/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../chat-frontend/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../chat-frontend/common/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/../chat-frontend/common/config.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../chat-frontend/html/chatRoom.html" beforeDir="false" afterPath="$PROJECT_DIR$/../chat-frontend/html/chatRoom.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/creatdb.js" beforeDir="false" afterPath="$PROJECT_DIR$/model/creatdb.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/nodejs-websocket/.jshintrc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/nodejs-websocket/.travis.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/nodejs-websocket/Connection.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/nodejs-websocket/HISTORY.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/nodejs-websocket/InStream.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/nodejs-websocket/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/nodejs-websocket/OutStream.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/nodejs-websocket/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/nodejs-websocket/Server.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/nodejs-websocket/frame.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/nodejs-websocket/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/nodejs-websocket/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/user/message.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/user/message.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/user/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/user/user.js" afterDir="false" />
     </list>
@@ -69,7 +85,18 @@
       <workItem from="1610507900810" duration="14937000" />
       <workItem from="1610539502801" duration="3305000" />
       <workItem from="1610542866723" duration="4134000" />
+      <workItem from="1610585387847" duration="11402000" />
+      <workItem from="1610622044299" duration="9031000" />
+      <workItem from="1610672444510" duration="22719000" />
     </task>
+    <task id="LOCAL-00001" summary="add disconnect tips">
+      <created>1610631052625</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1610631052625</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -87,12 +114,16 @@
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="add disconnect tips" />
+    <option name="LAST_COMMIT_MESSAGE" value="add disconnect tips" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/routes/user/user.js</url>
-          <line>32</line>
+          <line>31</line>
           <option name="timeStamp" value="7" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
@@ -101,21 +132,22 @@
           <option name="timeStamp" value="8" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/app.js</url>
-          <line>60</line>
-          <option name="timeStamp" value="13" />
+          <url>file://$PROJECT_DIR$/routes/user/message.js</url>
+          <line>57</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="63" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/app.js</url>
-          <line>61</line>
+          <url>file://$PROJECT_DIR$/routes/user/message.js</url>
+          <line>58</line>
           <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="14" />
+          <option name="timeStamp" value="64" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/app.js</url>
-          <line>62</line>
+          <url>file://$PROJECT_DIR$/routes/user/message.js</url>
+          <line>59</line>
           <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="15" />
+          <option name="timeStamp" value="65" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

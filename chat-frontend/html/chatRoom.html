@@ -16,7 +16,8 @@
         justify-content: space-between;
         align-items: center;
     }
-    #sign-out{
+
+    #sign-out {
         font-size: 20px;
         border-radius: 30px;
         background-color: #F3501D;
@@ -105,39 +106,45 @@
     .time-text {
         font-size: 10px;
     }
-    .me{
+
+    .me {
         padding-top: 10px;
     }
-    .other{
+
+    .other {
         display: flex;
         padding-top: 10px;
         justify-content: flex-end;
         padding-right: 0px;
     }
-    .other-msg{
+
+    .other-msg {
         padding-right: 20px;
     }
 </style>
 <body>
 <div class="container-fluid min-vh-100">
-    <div class="col-12" >
-            <h2 class="offset-4 col-4 text-center" style="display: inline-block">Chat Room</h2>
+    <div class="col-12">
+        <h2 class="offset-4 col-4 text-center" style="display: inline-block">Chat Room</h2>
         <button id="sign-out" style="float:right">exit</button>
     </div>
-<!--    <h2>Chat Room</h2>-->
+    <!--    <h2>Chat Room</h2>-->
     <div class="top">
         <div class="info row" id="chat">
         </div>
     </div>
-    <div class="bot col-sm-8">
-        <input class="col-sm-8 input-text" type="text" id="msg">
-        <button class="btn btn-success col-sm-2 btn-send " id="btn">Send</button>
+    <div class="bot col-8">
+        <input class="col-8 input-text" type="text" id="msg">
+        <button class="btn btn-success col-2 btn-send " id="btn">Send</button>
     </div>
 </div>
 <script src="../js/jquery-3.4.1.js"></script>
 <script src="../common/jquery.cookie.js"></script>
 <script type="text/javascript" src="../common/jquery.tmpl.js"></script>
+<script type="text/javascript" src="../common/axios.js"></script>
 <script src="../common/socket.io.js"></script>
+<script type="text/javascript" src="../common/config.js"></script>
+<script type="text/javascript" src="../common/message.js"></script>
 <script type="text/x-jquery-tmpl" id="message">
    {{if chat.username == "me"}}
         <div class="col-12 row me" style="padding-left: 30px;">
@@ -157,8 +164,10 @@
         {{/if}}
    </div>
 
+
 </script>
 <script>
+
 
     $(function () {
         var ws = io('ws://localhost:8002', {transport: ['websocket']});
@@ -168,8 +177,7 @@
         })
         ws.on('receiveMsg', function (data) {
             console.log("receiveMsg from server")
-            if (data.username == $.cookie("username") )
-            {
+            if (data.username == $.cookie("username")) {
                 $("#message").tmpl({
                     chat: {
                         "username": "me",
@@ -178,8 +186,7 @@
                     },
                 }).appendTo("#chat")
 
-            }
-            else {
+            } else {
                 $("#message").tmpl({
                     chat: {
                         "username": data.username,
@@ -191,47 +198,12 @@
             }
 
         })
-
-        // $("#message").tmpl({
-        //     chat: {
-        //         "username": $.cookie("username"),
-        //         "message": "chat",
-        //         "date": moment().format('MMMM Do YYYY, h:mm:ss')
-        //     },
-        //     // loginInfo: {
-        //     //
-        //     // },
-        //     // me: {
-        //     //
-        //     // }
-        // }).appendTo("#chat")
-        // $("#message").tmpl({
-        //     chat: {
-        //
-        //     },
-        //     loginInfo: {
-        //         "username": $.cookie("username"),
-        //         "message": "login out",
-        //         "date": moment().format('MMMM Do YYYY, h:mm:ss')
-        //     },
-        //     me: {
-        //
-        //     }
-        // }).appendTo("#chat")
-        // $("#message").tmpl({
-        //     chat: {
-        //     },
-        //     loginInfo: {
-        //
-        //     },
-        //     me: {
-        //         "username": $.cookie("username"),
-        //         "message": "me",
-        //         "date": moment().format('MMMM Do YYYY, h:mm:ss')
-        //     }
-        // }).appendTo("#chat")
         $(".btn-send").click(function () {
                 var usermsg = $("#msg").val()
+                if (!usermsg) {
+                    showMessage(" Please type information")
+                    return;
+                }
                 if (!usermsg) {
                     showMessage(" msg should not be empty")
                     return;
@@ -243,10 +215,43 @@
         $("#sign-out").click(function () {
                 // ws.on("")
                 ws.on('disconnect')
-                window.location.href="login.html"
+                window.location.href = "login.html"
             },
         )
+        axios.request({
+            url: config.findAllMsg,
+            method: "get",
+        }).then(res => {
+            if (res.data.code === 0) {
+                console.log("receiveAllUserMsg from server")
+                let data = res.data.data
+                for (let allMsg in data) {
+                    if (data[allMsg].sender == $.cookie("username")) {
+                        $("#message").tmpl({
+                            chat: {
+                                "username": "me",
+                                "message": data[allMsg].msg,
+                                "date": data[allMsg].creatTime,
+                            },
+                        }).appendTo("#chat")
+
+                    } else {
+                        $("#message").tmpl({
+                            chat: {
+                                "username": data[allMsg].sender,
+                                "message": data[allMsg].msg,
+                                "date": data[allMsg].creatTime,
+                            },
+                        }).appendTo("#chat")
+                    }
+                }
+            } else {
+                showMessage("login fail," + res.data.message);
+            }
+        })
+
     })
+
 </script>
 </body>
 </html>

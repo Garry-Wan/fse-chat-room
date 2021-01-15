@@ -5,6 +5,7 @@ const config = {
     findAll: baseUrl + '/user/login',
     loginUser: baseUrl + '/user/login',
     updateUser: baseUrl + '/user/update',
+    findAllMsg :baseUrl +'/message/findAllMsg',
     websocketConnect: baseUrl + '/websocket/socketServer.do'
 }
 
