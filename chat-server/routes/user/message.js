@@ -22,6 +22,7 @@ io.on('connection', function (conn) {
             onlineCount++;
             console.log('user connection ' + onlineUsers[conn.name]);
             console.log('user connection number:   ' + onlineCount)
+            io.emit('loginInfo',onlineUsers)
         }
     });
     conn.on('disconnect', function () {
@@ -31,6 +32,7 @@ io.on('connection', function (conn) {
             delete onlineUsers[conn.name];
             onlineCount--;
             console.log('disconnection user connection number:' + onlineCount)
+            io.emit('loginInfo'+onlineUsers)
         }
     });
     conn.on('sendMsg', function (data) {

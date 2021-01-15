@@ -3,24 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="25fb6fbf-7db5-44e6-848f-6e87a08a257c" name="Default Changelist" comment="modify file name">
       <change beforePath="$PROJECT_DIR$/../chat-server/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../chat-server/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../chat-server/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/../chat-server/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../chat-server/model/creatdb.js" beforeDir="false" afterPath="$PROJECT_DIR$/../chat-server/model/creatdb.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../chat-server/node_modules/nodejs-websocket/.jshintrc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../chat-server/node_modules/nodejs-websocket/.travis.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../chat-server/node_modules/nodejs-websocket/Connection.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../chat-server/node_modules/nodejs-websocket/HISTORY.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../chat-server/node_modules/nodejs-websocket/InStream.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../chat-server/node_modules/nodejs-websocket/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../chat-server/node_modules/nodejs-websocket/OutStream.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../chat-server/node_modules/nodejs-websocket/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../chat-server/node_modules/nodejs-websocket/Server.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../chat-server/node_modules/nodejs-websocket/frame.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../chat-server/node_modules/nodejs-websocket/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../chat-server/node_modules/nodejs-websocket/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../chat-server/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../chat-server/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../chat-server/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../chat-server/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../chat-server/routes/user/message.js" beforeDir="false" afterPath="$PROJECT_DIR$/../chat-server/routes/user/message.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../chat-server/routes/user/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/../chat-server/routes/user/user.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -123,7 +106,7 @@
       <workItem from="1610614175612" duration="13000" />
       <workItem from="1610614370476" duration="449000" />
       <workItem from="1610616233275" duration="12187000" />
-      <workItem from="1610672426639" duration="18029000" />
+      <workItem from="1610672426639" duration="31310000" />
     </task>
     <task id="LOCAL-00001" summary="add by Garry 2020">
       <created>1609162872837</created>

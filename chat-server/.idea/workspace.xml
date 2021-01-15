@@ -3,27 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="165b7185-3dc6-4299-8740-ab0cb27ee519" name="Default Changelist" comment="add disconnect tips">
       <change beforePath="$PROJECT_DIR$/../chat-frontend/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../chat-frontend/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../chat-frontend/common/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/../chat-frontend/common/config.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../chat-frontend/html/chatRoom.html" beforeDir="false" afterPath="$PROJECT_DIR$/../chat-frontend/html/chatRoom.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/creatdb.js" beforeDir="false" afterPath="$PROJECT_DIR$/model/creatdb.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/nodejs-websocket/.jshintrc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/nodejs-websocket/.travis.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/nodejs-websocket/Connection.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/nodejs-websocket/HISTORY.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/nodejs-websocket/InStream.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/nodejs-websocket/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/nodejs-websocket/OutStream.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/nodejs-websocket/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/nodejs-websocket/Server.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/nodejs-websocket/frame.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/nodejs-websocket/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/nodejs-websocket/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/user/message.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/user/message.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/user/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/user/user.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,7 +69,7 @@
       <workItem from="1610542866723" duration="4134000" />
       <workItem from="1610585387847" duration="11402000" />
       <workItem from="1610622044299" duration="9031000" />
-      <workItem from="1610672444510" duration="22719000" />
+      <workItem from="1610672444510" duration="27259000" />
     </task>
     <task id="LOCAL-00001" summary="add disconnect tips">
       <created>1610631052625</created>
@@ -133,19 +115,19 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/routes/user/message.js</url>
-          <line>57</line>
+          <line>58</line>
           <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="63" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/routes/user/message.js</url>
-          <line>58</line>
+          <line>59</line>
           <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="64" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/routes/user/message.js</url>
-          <line>59</line>
+          <line>60</line>
           <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="65" />
         </line-breakpoint>
