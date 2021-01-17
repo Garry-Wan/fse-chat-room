@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="25fb6fbf-7db5-44e6-848f-6e87a08a257c" name="Default Changelist" comment="modify file name">
+      <change afterPath="$PROJECT_DIR$/../chat-server/common/moment.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../chat-server/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../chat-server/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../chat-server/common/util.js" beforeDir="false" afterPath="$PROJECT_DIR$/../chat-server/common/util.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../chat-server/routes/user/message.js" beforeDir="false" afterPath="$PROJECT_DIR$/../chat-server/routes/user/message.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -106,7 +108,13 @@
       <workItem from="1610614175612" duration="13000" />
       <workItem from="1610614370476" duration="449000" />
       <workItem from="1610616233275" duration="12187000" />
-      <workItem from="1610672426639" duration="31310000" />
+      <workItem from="1610672426639" duration="31807000" />
+      <workItem from="1610722167631" duration="158000" />
+      <workItem from="1610780217287" duration="492000" />
+      <workItem from="1610784749197" duration="2715000" />
+      <workItem from="1610810627130" duration="3436000" />
+      <workItem from="1610851851135" duration="12158000" />
+      <workItem from="1610894932020" duration="1257000" />
     </task>
     <task id="LOCAL-00001" summary="add by Garry 2020">
       <created>1609162872837</created>
@@ -223,6 +231,17 @@
     <MESSAGE value="add http request by using axios" />
     <MESSAGE value="modify file name" />
     <option name="LAST_COMMIT_MESSAGE" value="modify file name" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/html/chatRoom.html</url>
+          <line>234</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

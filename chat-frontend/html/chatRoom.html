@@ -42,7 +42,8 @@
         flex: 1;
         position: relative;
     }
-    #online-user{
+
+    #online-user {
         display: inline-block;
         border-right: 1px solid #000000;
         height: 100%;
@@ -54,6 +55,7 @@
         /*padding-left: 0px;*/
         padding-right: 0px;
     }
+
     /*#one-user{*/
     /*    border-bottom: 1px solid #000000;*/
     /*}*/
@@ -148,10 +150,10 @@
     <!--    <h2>Chat Room</h2>-->
     <div class="top row">
         <div class="row col-2" id="online-user">
-<!--            <div class="text-center" style="border-bottom: 1px solid #000000" >-->
-<!--                <div style="display: inline-block; font-size: 30px">ddd</div>-->
-<!--                <div class="text-right" style="display: inline-block; font-size: 20px;" >111</div>-->
-<!--            </div>-->
+            <!--            <div class="text-center" style="border-bottom: 1px solid #000000" >-->
+            <!--                <div style="display: inline-block; font-size: 30px">ddd</div>-->
+            <!--                <div class="text-right" style="display: inline-block; font-size: 20px;" >111</div>-->
+            <!--            </div>-->
 
         </div>
         <div class="info offset-2 col-10 row" id="chat">
@@ -169,9 +171,10 @@
 <script src="../common/socket.io.js"></script>
 <script type="text/javascript" src="../common/config.js"></script>
 <script type="text/javascript" src="../common/message.js"></script>
+<script type="text/javascript" src="../common/util.js"></script>
 <script type="text/x-jquery-tmpl" id="message">
    {{if chat.username == "me"}}
-        <div class="col-12 row me" style="padding-left: 18px;">
+        <div class="col-12 row me" style="padding-left: 5px;">
                 <div class="username">${chat.username}</div>
                 <div class="span col-10 text-left">
                     <div class="msg-text row">${chat.message}</div>
@@ -189,6 +192,7 @@
    </div>
 
 
+
 </script>
 
 <script type="text/x-jquery-tmpl" id="one-user">
@@ -196,6 +200,7 @@
         <div style="display: inline-block; font-size: 30px">${loginList.username}  </div>
         <div class="text-right" style="display: inline-block; font-size: 20px;" >${loginList.date}</div>
    </div>
+
 </script>
 <script>
 
@@ -205,28 +210,40 @@
             console.log("server connect success");
             ws.emit('login', {username: $.cookie("username")})
         })
-        $("#one-user").tmpl({
-            loginList: {
-                "username": "Me",
-                "date": moment().format('h:mm:ss')
-            },
-        }).appendTo("#online-user")
+        // $("#one-user").tmpl({
+        //     loginList: {
+        //         "username": "Me",
+        //         "date": moment().format('h:mm:ss')
+        //     },
+        // }).appendTo("#online-user")
 
-        ws.on('loginInfo',function (data) {
+        ws.on('loginInfo', function (data) {
             console.log("user login from server")
-            for (let onlineUser in data)
-            {
-                if(data[onlineUser]!= $.cookie("username"))
-                {
+            $("#online-user").empty();
+            $.each(JSON.parse(data),function(idx,obj){
+                if(obj.name == $.cookie("username")){
                     $("#one-user").tmpl({
                         loginList: {
-                            "username": data[onlineUser],
-                            "date": moment().format('h:mm:ss')
+                            "username": "me",
+                            "date": obj.date
                         },
                     }).appendTo("#online-user")
-
                 }
-            }
+            });
+
+            $.each(JSON.parse(data),function(idx,obj)
+            {
+                if(obj.name!= $.cookie("username"))
+                {
+                    console.log(obj.name)
+                    $("#one-user").tmpl({
+                        loginList: {
+                            "username": obj.name,
+                            "date": obj.date
+                        },
+                    }).appendTo("#online-user")
+                }
+            });
         })
         ws.on('receiveMsg', function (data) {
             console.log("receiveMsg from server")
@@ -304,6 +321,126 @@
         })
 
     })
+
+
+    // $(function () {
+    //     var ws = io('ws://localhost:8002', {loginList: ['websocket']});
+    //     ws.on('connect', function (e) {
+    //         console.log("server connect success");
+    //         ws.emit('login', {username: $.cookie("username")})
+    //     })
+    //     // $("#one-user").tmpl({
+    //     //     loginList: {
+    //     //         "username": "Me",
+    //     //         "date": moment().format('h:mm:ss')
+    //     //     },
+    //     // }).appendTo("#online-user")
+    //
+    //     ws.on('loginInfo',function (data) {
+    //         console.log("user login from server")
+    //         $("#online-user").empty();
+    //         // $("#one-user").tmpl({
+    //         //     loginList: {
+    //         //         "username":"( "+ getLength(data) + " P )",
+    //         //         "date": ""
+    //         //     },
+    //         // }).appendTo("#online-user")
+    //
+    //         $("#one-user").tmpl({
+    //             loginList: {
+    //                 "username": "me",
+    //                 "date": moment().format('h:mm:ss')
+    //             },
+    //         }).appendTo("#online-user")
+    //         for (let onlineUser in data)
+    //         {
+    //             if(data[onlineUser]!= $.cookie("username"))
+    //             {
+    //                 $("#one-user").tmpl({
+    //                     loginList: {
+    //                         "username": data[onlineUser],
+    //                         "date": moment().format('h:mm:ss')
+    //                     },
+    //                 }).appendTo("#online-user")
+    //             }
+    //         }
+    //     })
+    //     ws.on('receiveMsg', function (data) {
+    //         console.log("receiveMsg from server")
+    //         if (data.username == $.cookie("username")) {
+    //             $("#message").tmpl({
+    //                 chat: {
+    //                     "username": "me",
+    //                     "message": data.msg,
+    //                     "date": moment().format('MMMM Do YYYY, h:mm:ss')
+    //                 },
+    //             }).appendTo("#chat")
+    //
+    //         } else {
+    //             $("#message").tmpl({
+    //                 chat: {
+    //                     "username": data.username,
+    //                     "message": data.msg,
+    //                     "date": moment().format('MMMM Do YYYY, h:mm:ss')
+    //                 },
+    //             }).appendTo("#chat")
+    //
+    //         }
+    //
+    //     })
+    //     $(".btn-send").click(function () {
+    //             var usermsg = $("#msg").val()
+    //             if (!usermsg) {
+    //                 showMessage(" Please type information")
+    //                 return;
+    //             }
+    //             if (!usermsg) {
+    //                 showMessage(" msg should not be empty")
+    //                 return;
+    //             }
+    //             ws.emit('sendMsg', {username: $.cookie("username"), msg: $("#msg").val()});
+    //             $("#msg").val('')
+    //         },
+    //     )
+    //     $("#sign-out").click(function () {
+    //             // ws.on("")
+    //             ws.on('disconnect')
+    //             window.location.href = "login.html"
+    //         },
+    //     )
+    //     axios.request({
+    //         url: config.findAllMsg,
+    //         method: "get",
+    //     }).then(res => {
+    //         if (res.data.code === 0) {
+    //             console.log("receiveAllUserMsg from server")
+    //             let data = res.data.data
+    //             for (let allMsg in data) {
+    //                 if (data[allMsg].sender == $.cookie("username")) {
+    //                     $("#message").tmpl({
+    //                         chat: {
+    //                             "username": "me",
+    //                             "message": data[allMsg].msg,
+    //                             "date": data[allMsg].creatTime,
+    //                         },
+    //                     }).appendTo("#chat")
+    //
+    //                 } else {
+    //                     $("#message").tmpl({
+    //                         chat: {
+    //                             "username": data[allMsg].sender,
+    //                             "message": data[allMsg].msg,
+    //                             "date": data[allMsg].creatTime,
+    //                         },
+    //                     }).appendTo("#chat")
+    //                 }
+    //             }
+    //         } else {
+    //             showMessage("login fail," + res.data.message);
+    //         }
+    //     })
+    //
+    // })
 </script>
 </body>
 </html>
