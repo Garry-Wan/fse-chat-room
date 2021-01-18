@@ -24,12 +24,13 @@
         width: 100px;
         border-radius: 10px;
         position: absolute;
-        top:3px;
+        top: 3px;
         right: 15px;
         display: block;
         padding: 0px;
     }
-    #sign-out:hover{
+
+    #sign-out:hover {
         background-color: #b3d7ff;
     }
 
@@ -43,8 +44,8 @@
         border-top: 1px solid #000000;
         border-right: 1px solid #000000;
         border-left: 1px solid #000000;
-        border-top-left-radius: 20px;
-        border-top-right-radius: 20px;
+        /*border-top-left-radius: 20px;*/
+        /*border-top-right-radius: 20px;*/
         flex: 1;
         position: relative;
     }
@@ -63,8 +64,11 @@
 
     .info {
         display: inline-block;
-        padding-right: 0px;
-        padding-left: 0px;
+        padding-right: 10px;
+        padding-left: 10px;
+        height: 580px;
+        overflow-y: scroll;
+
     }
 
     ul li {
@@ -75,7 +79,7 @@
     .bot {
         margin-bottom: 20px;
         flex-basis: 100px;
-        position:relative;
+        position: relative;
         padding-right: 0px;
         padding-left: 0px;
 
@@ -169,7 +173,7 @@
         </div>
     </div>
     <div class="bot col-12">
-                <textarea class="col-12 input-text"  type="text"  id="msg" placeholder="type..." ></textarea>
+        <textarea class="col-12 input-text" type="text" id="msg" placeholder="type..."></textarea>
         <button class="btn btn-success offset-10 col-2 btn-send " id="btn">Send</button>
     </div>
 </div>
@@ -200,6 +204,9 @@
         </div>
         {{/if}}
    </div>
+
+
+
 </script>
 
 <script type="text/x-jquery-tmpl" id="one-user">
@@ -207,118 +214,125 @@
         <div style="display: inline-block; font-size: 30px">${loginList.username}  </div>
         <div class="text-right" style="display: inline-block; font-size: 20px;" >${loginList.date}</div>
    </div>
+
+
+
 </script>
 <script>
-
     $(function () {
-        var ws = io('ws://localhost:8002', {loginList: ['websocket']});
-        ws.on('connect', function (e) {
-            console.log("server connect success");
-            ws.emit('login', {username: $.cookie("username")})
-        })
-
-        ws.on('loginInfo', function (data) {
-            console.log("user login from server")
-            $("#online-user").empty();
-            $.each(JSON.parse(data), function (idx, obj) {
-                if (obj.name == $.cookie("username")) {
-                    $("#one-user").tmpl({
-                        loginList: {
-                            "username": "me",
-                            "date": obj.date
-                        },
-                    }).appendTo("#online-user")
-                }
-            });
-
-            $.each(JSON.parse(data), function (idx, obj) {
-                if (obj.name != $.cookie("username")) {
-                    console.log(obj.name)
-                    $("#one-user").tmpl({
-                        loginList: {
-                            "username": obj.name,
-                            "date": obj.date
-                        },
-                    }).appendTo("#online-user")
-                }
-            });
-        })
-        ws.on('receiveMsg', function (data) {
-            console.log("receiveMsg from server")
-            if (data.username == $.cookie("username")) {
-                $("#message").tmpl({
-                    chat: {
-                        "username": "me",
-                        "message": data.msg,
-                        "date": moment().format('MMMM Do YYYY, h:mm:ss')
-                    },
-                }).appendTo("#chat")
-
-            } else {
-                $("#message").tmpl({
-                    chat: {
-                        "username": data.username,
-                        "message": data.msg,
-                        "date": moment().format('MMMM Do YYYY, h:mm:ss')
-                    },
-                }).appendTo("#chat")
-
-            }
-
-        })
-        $(".btn-send").click(function () {
-                var usermsg = $("#msg").val()
-                if (!usermsg) {
-                    showMessage(" Please type information")
-                    return;
-                }
-                if (!usermsg) {
-                    showMessage(" msg should not be empty")
-                    return;
-                }
-                ws.emit('sendMsg', {username: $.cookie("username"), msg: $("#msg").val()});
-                $("#msg").val('')
-            },
-        )
-        $("#sign-out").click(function () {
-                // ws.on("")
-                ws.on('disconnect')
-                window.location.href = "login.html"
-            },
-        )
-        axios.request({
-            url: config.findAllMsg,
-            method: "get",
-        }).then(res => {
-            if (res.data.code === 0) {
-                console.log("receiveAllUserMsg from server")
-                let data = res.data.data
-                for (let allMsg in data) {
-                    if (data[allMsg].sender == $.cookie("username")) {
-                        $("#message").tmpl({
-                            chat: {
+            var ws = io('ws://localhost:8002', {loginList: ['websocket']});
+            ws.on('connect', function (e) {
+                console.log("server connect success");
+                ws.emit('login', {username: $.cookie("username")})
+            })
+            ws.on('loginInfo', function (data) {
+                console.log("user login from server")
+                $("#online-user").empty();
+                $.each(JSON.parse(data), function (idx, obj) {
+                    if (obj.name == $.cookie("username")) {
+                        $("#one-user").tmpl({
+                            loginList: {
                                 "username": "me",
-                                "message": data[allMsg].msg,
-                                "date": data[allMsg].creatTime,
+                                "date": obj.date
                             },
-                        }).appendTo("#chat")
-
-                    } else {
-                        $("#message").tmpl({
-                            chat: {
-                                "username": data[allMsg].sender,
-                                "message": data[allMsg].msg,
-                                "date": data[allMsg].creatTime,
-                            },
-                        }).appendTo("#chat")
+                        }).appendTo("#online-user")
                     }
-                }
-            } else {
-                showMessage("login fail," + res.data.message);
-            }
-        })
+                });
 
-    })
+                $.each(JSON.parse(data), function (idx, obj) {
+                    if (obj.name != $.cookie("username")) {
+                        console.log(obj.name)
+                        $("#one-user").tmpl({
+                            loginList: {
+                                "username": obj.name,
+                                "date": obj.date
+                            },
+                        }).appendTo("#online-user")
+                    }
+                });
+            })
+            ws.on('receiveMsg', function (data) {
+                console.log("receiveMsg from server")
+                if (data.username == $.cookie("username")) {
+                    $("#message").tmpl({
+                        chat: {
+                            "username": "me",
+                            "message": data.msg,
+                            "date": moment().format('MMMM Do YYYY, h:mm:ss')
+                        },
+                    }).appendTo("#chat")
+
+                } else {
+                    $("#message").tmpl({
+                        chat: {
+                            "username": data.username,
+                            "message": data.msg,
+                            "date": moment().format('MMMM Do YYYY, h:mm:ss')
+                        },
+                    }).appendTo("#chat")
+
+                }
+
+            })
+            $(".btn-send").click(function () {
+                    var usermsg = $("#msg").val()
+                    if (!usermsg) {
+                        showMessage(" Please type information")
+                        return;
+                    }
+                    if (!usermsg) {
+                        showMessage(" msg should not be empty")
+                        return;
+                    }
+                    ws.emit('sendMsg', {username: $.cookie("username"), msg: $("#msg").val()});
+                    $("#msg").val('')
+                },
+            )
+            $("#sign-out").click(function () {
+                    // ws.on("")
+                    ws.on('disconnect')
+                    window.location.href = "login.html"
+                },
+            )
+            axios.request({
+                url: config.findAllMsg,
+                method: "get",
+            }).then(res => {
+                if (res.data.code === 0) {
+                    console.log("receiveAllUserMsg from server")
+                    let data = res.data.data
+                    for (let allMsg in data) {
+                        if (data[allMsg].sender == $.cookie("username")) {
+                            $("#message").tmpl({
+                                chat: {
+                                    "username": "me",
+                                    "message": data[allMsg].msg,
+                                    "date": data[allMsg].creatTime,
+                                },
+                            }).appendTo("#chat")
+
+                        } else {
+                            $("#message").tmpl({
+                                chat: {
+                                    "username": data[allMsg].sender,
+                                    "message": data[allMsg].msg,
+                                    "date": data[allMsg].creatTime,
+                                },
+                            }).appendTo("#chat")
+                        }
+                    }
+                } else {
+                    showMessage("login fail," + res.data.message);
+                }
+            })
+            // $(".info").scrollTop($('.info').height())
+            // $('.info').ready(function () {
+            //     $('.info').scrollTop($('.info').height());
+            // })
+
+
+        }
+    )
 </script>
 </body>
 </html>
