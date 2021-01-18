@@ -30,7 +30,9 @@ user.post('/create',((req, res) => {
     let create = req.body
     db.createUser(create, (err, doc) => {
         if(err){
-            res.send(JSON.stringify(util.failMessage(err.message)))
+            let a = util.failMessage(err.message)
+            console.log(err.message)
+           res.send(JSON.stringify(util.failMessage(err.message)))
         }else {
             res.send(JSON.stringify(util.success(null)))
         }

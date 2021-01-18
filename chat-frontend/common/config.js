@@ -4,6 +4,7 @@ let baseUrl = 'http://localhost:8001'
 const config = {
     findAll: baseUrl + '/user/login',
     loginUser: baseUrl + '/user/login',
+    registerUser: baseUrl +'/user/create',
     updateUser: baseUrl + '/user/update',
     findAllMsg :baseUrl +'/message/findAllMsg',
     websocketConnect: baseUrl + '/websocket/socketServer.do'

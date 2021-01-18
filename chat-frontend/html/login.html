@@ -5,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
-
     <title>FSE Chat Room</title>
     <style>
         .container-fluid{
@@ -27,18 +26,19 @@
             border-radius: 10px;
             background-color: #FFFFFF;
         }
-        .inputEmail{
+        .inputName{
             height: 50px;
             border-radius: 10px;
             background-color: #E8F0FE;
             border-color: #1877F2;
-
+            outline: none;
         }
         .inputPassword{
             height: 50px;
             border-radius: 10px;
             background-color: #E8F0FE;
             border-color: #1877F2;
+            outline: none;
         }
         .login{
             display: flex;
@@ -83,9 +83,9 @@
         <div class="col-lg-6 right">
             <form class="form-horizontal col-lg-7">
                 <div class="control-group">
-                    <label class="control-label" for="inputEmail"></label>
+                    <label class="control-label" for="inputName"></label>
                     <span class="controls">
-                        <input class="col-lg-12 inputEmail" id="inputEmail" type="text" placeholder="Username"/>
+                        <input class="col-lg-12 inputName" id="inputName" type="text" placeholder="Username"/>
                     </span>
                 </div>
                 <div class="control-group">
@@ -102,7 +102,7 @@
                 </div>
                 <hr color="#6f5499"/>
                 <div class="account">
-                    <button type="button" class="btn btn-success btn-account">Creat new Account</button>
+                    <button type="button" class="btn btn-success btn-account" id="btn-account">Creat new Account</button>
                 </div>
             </form>
         </div>
@@ -118,10 +118,10 @@
     $(function () {
         $("#login").click(function () {
             // var li =
-            let username = $("#inputEmail").val();
+            let username = $("#inputName").val();
             let uPassword = $("#inputPassword").val();
             if (!username){
-                showMessage(" Email should not be empty")
+                showMessage(" Username should not be empty")
                 return;
             }
             if (!uPassword){
@@ -136,14 +136,15 @@
             }).then(res => {
                 if(res.data.code === 0){
                     // showMessage("login success, Enter chat room");
-                    $.cookie("username", res.data.data.username)
                     window.location.href="chatRoom.html"
 
                 }else {
                     showMessage("login fail,"+res.data.message);
                 }
             })
-
+        })
+        $("#btn-account").click(function () {
+            window.location.href="signUp.html"
         })
     })
 </script>
