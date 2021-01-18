@@ -56,7 +56,7 @@ io.on('connection', function (conn) {
                 //        res.send(JSON.stringify(util.failMessage(err.message)))
             } else {
                 // res.send(JSON.stringify(util.success(null)))
-                console.log(data.username + "msg data success")
+                console.log(data.username + "  msg data success")
             }
         })
     })

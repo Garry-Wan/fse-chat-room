@@ -2,11 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="165b7185-3dc6-4299-8740-ab0cb27ee519" name="Default Changelist" comment="add disconnect tips">
-      <change afterPath="$PROJECT_DIR$/common/moment.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../chat-frontend/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../chat-frontend/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../chat-frontend/html/chatRoom.html" beforeDir="false" afterPath="$PROJECT_DIR$/../chat-frontend/html/chatRoom.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/util.js" beforeDir="false" afterPath="$PROJECT_DIR$/common/util.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/user/message.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/user/message.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -79,6 +77,8 @@
       <workItem from="1610810607742" duration="4618000" />
       <workItem from="1610851864367" duration="13210000" />
       <workItem from="1610894921648" duration="1268000" />
+      <workItem from="1610896422671" duration="2000" />
+      <workItem from="1610932273233" duration="3421000" />
     </task>
     <task id="LOCAL-00001" summary="add disconnect tips">
       <created>1610631052625</created>

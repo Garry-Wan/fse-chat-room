@@ -19,15 +19,18 @@
 
     #sign-out {
         font-size: 20px;
-        border-radius: 30px;
-        background-color: #F3501D;
-        width: 50px;
-        height: 50px;
-        line-height: 50px;
-        text-align: center;
-        vertical-align: middle;
-        color: #fff;
-        border: 1px solid #007bff;
+        border: 2px solid #adb5bd;
+        height: 40px;
+        width: 100px;
+        border-radius: 10px;
+        position: absolute;
+        top:3px;
+        right: 15px;
+        display: block;
+        padding: 0px;
+    }
+    #sign-out:hover{
+        background-color: #b3d7ff;
     }
 
     .name {
@@ -37,8 +40,11 @@
 
     .top {
         width: 100%;
-        border: 1px solid #000000;
-        border-radius: 20px;
+        border-top: 1px solid #000000;
+        border-right: 1px solid #000000;
+        border-left: 1px solid #000000;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
         flex: 1;
         position: relative;
     }
@@ -51,14 +57,9 @@
         top: 0;
         left: 0;
         bottom: 0;
-        /*font-size: 30px;*/
-        /*padding-left: 0px;*/
         padding-right: 0px;
     }
 
-    /*#one-user{*/
-    /*    border-bottom: 1px solid #000000;*/
-    /*}*/
 
     .info {
         display: inline-block;
@@ -72,25 +73,34 @@
     }
 
     .bot {
-        height: 40px;
-        margin-top: 20px;
         margin-bottom: 20px;
+        flex-basis: 100px;
+        position:relative;
+        padding-right: 0px;
+        padding-left: 0px;
+
     }
 
     .input-text {
-        height: 40px;
-        border-radius: 10px;
-
+        border: 1px solid #000000;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+        outline: none;
+        height: 100px;
     }
 
     .btn-send {
         height: 40px;
         border-radius: 10px;
+        position: absolute;
+        right: 15px;
+        width: 80px;
+        bottom: 10px;
+        display: block;
     }
 
 
-    .username {
-        /*display: inline-block;*/
+    .username-me {
         font-size: 15px;
         border-radius: 30px;
         background-color: pink;
@@ -104,7 +114,6 @@
     }
 
     .username-other {
-        /*display: inline-block;*/
         font-size: 15px;
         border-radius: 30px;
         background-color: #b3d7ff;
@@ -119,17 +128,18 @@
 
     .msg-text {
         font-size: 20px;
+        word-break: break-all;
     }
 
     .time-text {
         font-size: 10px;
     }
 
-    .me {
+    .other {
         padding-top: 10px;
     }
 
-    .other {
+    .me {
         display: flex;
         padding-top: 10px;
         justify-content: flex-end;
@@ -145,9 +155,8 @@
 <div class="container-fluid min-vh-100">
     <div class="col-12">
         <h2 class="offset-4 col-4 text-center" style="display: inline-block">Chat Room</h2>
-        <button id="sign-out" style="float:right">exit</button>
+        <button class="btn" id="sign-out" style="float:right">Log Out</button>
     </div>
-    <!--    <h2>Chat Room</h2>-->
     <div class="top row">
         <div class="row col-2" id="online-user">
             <!--            <div class="text-center" style="border-bottom: 1px solid #000000" >-->
@@ -159,9 +168,9 @@
         <div class="info offset-2 col-10 row" id="chat">
         </div>
     </div>
-    <div class="bot col-8">
-        <input class="col-8 input-text" type="text" id="msg">
-        <button class="btn btn-success col-2 btn-send " id="btn">Send</button>
+    <div class="bot col-12">
+                <textarea class="col-12 input-text"  type="text"  id="msg" placeholder="type..." ></textarea>
+        <button class="btn btn-success offset-10 col-2 btn-send " id="btn">Send</button>
     </div>
 </div>
 <script src="../js/jquery-3.4.1.js"></script>
@@ -174,25 +183,23 @@
 <script type="text/javascript" src="../common/util.js"></script>
 <script type="text/x-jquery-tmpl" id="message">
    {{if chat.username == "me"}}
-        <div class="col-12 row me" style="padding-left: 5px;">
-                <div class="username">${chat.username}</div>
+           <div class="col-12 row me ">
+            <div class="span text-right other-msg">
+                <div class="msg-text row text-right" style="display:inline-block; text-align:right; width: 400px">${chat.message}</div>
+                <div class="time-text row text-right" style="direction: rtl">${chat.date}</div>
+            </div>
+            <div class="username-me">${chat.username}</div>
+
+    {{else}}
+         <div class="col-12 row other" style="padding-left: 5px; width: 400px">
+                <div class="username-other">${chat.username}</div>
                 <div class="span col-10 text-left">
                     <div class="msg-text row">${chat.message}</div>
                         <div class="time-text row">${chat.date}</div>
                 </div>
         </div>
-    {{else}}
-         <div class="col-12 row other ">
-            <div class="span text-right other-msg">
-                <div class="msg-text row text-right">${chat.message}</div>
-                <div class="time-text row text-right">${chat.date}</div>
-            </div>
-            <div class="username-other">${chat.username}</div>
         {{/if}}
    </div>
-
-
-
 </script>
 
 <script type="text/x-jquery-tmpl" id="one-user">
@@ -200,7 +207,6 @@
         <div style="display: inline-block; font-size: 30px">${loginList.username}  </div>
         <div class="text-right" style="display: inline-block; font-size: 20px;" >${loginList.date}</div>
    </div>
-
 </script>
 <script>
 
@@ -210,18 +216,12 @@
             console.log("server connect success");
             ws.emit('login', {username: $.cookie("username")})
         })
-        // $("#one-user").tmpl({
-        //     loginList: {
-        //         "username": "Me",
-        //         "date": moment().format('h:mm:ss')
-        //     },
-        // }).appendTo("#online-user")
 
         ws.on('loginInfo', function (data) {
             console.log("user login from server")
             $("#online-user").empty();
-            $.each(JSON.parse(data),function(idx,obj){
-                if(obj.name == $.cookie("username")){
+            $.each(JSON.parse(data), function (idx, obj) {
+                if (obj.name == $.cookie("username")) {
                     $("#one-user").tmpl({
                         loginList: {
                             "username": "me",
@@ -231,10 +231,8 @@
                 }
             });
 
-            $.each(JSON.parse(data),function(idx,obj)
-            {
-                if(obj.name!= $.cookie("username"))
-                {
+            $.each(JSON.parse(data), function (idx, obj) {
+                if (obj.name != $.cookie("username")) {
                     console.log(obj.name)
                     $("#one-user").tmpl({
                         loginList: {
@@ -321,126 +319,23 @@
         })
 
     })
-
-
-    // $(function () {
-    //     var ws = io('ws://localhost:8002', {loginList: ['websocket']});
-    //     ws.on('connect', function (e) {
-    //         console.log("server connect success");
-    //         ws.emit('login', {username: $.cookie("username")})
-    //     })
-    //     // $("#one-user").tmpl({
-    //     //     loginList: {
-    //     //         "username": "Me",
-    //     //         "date": moment().format('h:mm:ss')
-    //     //     },
-    //     // }).appendTo("#online-user")
-    //
-    //     ws.on('loginInfo',function (data) {
-    //         console.log("user login from server")
-    //         $("#online-user").empty();
-    //         // $("#one-user").tmpl({
-    //         //     loginList: {
-    //         //         "username":"( "+ getLength(data) + " P )",
-    //         //         "date": ""
-    //         //     },
-    //         // }).appendTo("#online-user")
-    //
-    //         $("#one-user").tmpl({
-    //             loginList: {
-    //                 "username": "me",
-    //                 "date": moment().format('h:mm:ss')
-    //             },
-    //         }).appendTo("#online-user")
-    //         for (let onlineUser in data)
-    //         {
-    //             if(data[onlineUser]!= $.cookie("username"))
-    //             {
-    //                 $("#one-user").tmpl({
-    //                     loginList: {
-    //                         "username": data[onlineUser],
-    //                         "date": moment().format('h:mm:ss')
-    //                     },
-    //                 }).appendTo("#online-user")
-    //             }
-    //         }
-    //     })
-    //     ws.on('receiveMsg', function (data) {
-    //         console.log("receiveMsg from server")
-    //         if (data.username == $.cookie("username")) {
-    //             $("#message").tmpl({
-    //                 chat: {
-    //                     "username": "me",
-    //                     "message": data.msg,
-    //                     "date": moment().format('MMMM Do YYYY, h:mm:ss')
-    //                 },
-    //             }).appendTo("#chat")
-    //
-    //         } else {
-    //             $("#message").tmpl({
-    //                 chat: {
-    //                     "username": data.username,
-    //                     "message": data.msg,
-    //                     "date": moment().format('MMMM Do YYYY, h:mm:ss')
-    //                 },
-    //             }).appendTo("#chat")
-    //
-    //         }
-    //
-    //     })
-    //     $(".btn-send").click(function () {
-    //             var usermsg = $("#msg").val()
-    //             if (!usermsg) {
-    //                 showMessage(" Please type information")
-    //                 return;
-    //             }
-    //             if (!usermsg) {
-    //                 showMessage(" msg should not be empty")
-    //                 return;
-    //             }
-    //             ws.emit('sendMsg', {username: $.cookie("username"), msg: $("#msg").val()});
-    //             $("#msg").val('')
-    //         },
-    //     )
-    //     $("#sign-out").click(function () {
-    //             // ws.on("")
-    //             ws.on('disconnect')
-    //             window.location.href = "login.html"
-    //         },
-    //     )
-    //     axios.request({
-    //         url: config.findAllMsg,
-    //         method: "get",
-    //     }).then(res => {
-    //         if (res.data.code === 0) {
-    //             console.log("receiveAllUserMsg from server")
-    //             let data = res.data.data
-    //             for (let allMsg in data) {
-    //                 if (data[allMsg].sender == $.cookie("username")) {
-    //                     $("#message").tmpl({
-    //                         chat: {
-    //                             "username": "me",
-    //                             "message": data[allMsg].msg,
-    //                             "date": data[allMsg].creatTime,
-    //                         },
-    //                     }).appendTo("#chat")
-    //
-    //                 } else {
-    //                     $("#message").tmpl({
-    //                         chat: {
-    //                             "username": data[allMsg].sender,
-    //                             "message": data[allMsg].msg,
-    //                             "date": data[allMsg].creatTime,
-    //                         },
-    //                     }).appendTo("#chat")
-    //                 }
-    //             }
-    //         } else {
-    //             showMessage("login fail," + res.data.message);
-    //         }
-    //     })
-    //
-    // })
 </script>
 </body>
 </html>
+<!--{{if chat.username == "me"}}-->
+<!--<div class="col-12 row me" style="padding-left: 5px; width: 400px">-->
+<!--    <div class="username">${chat.username}</div>-->
+<!--    <div class="span col-10 text-left">-->
+<!--        <div class="msg-text row">${chat.message}</div>-->
+<!--        <div class="time-text row">${chat.date}</div>-->
+<!--    </div>-->
+<!--</div>-->
+<!--{{else}}-->
+<!--<div class="col-12 row other ">-->
+<!--    <div class="span text-right other-msg">-->
+<!--        <div class="msg-text row text-right" style="display:inline-block; text-align:right; width: 400px">${chat.message}</div>-->
+<!--        <div class="time-text row text-right" style="direction: rtl">${chat.date}</div>-->
+<!--    </div>-->
+<!--    <div class="username-other">${chat.username}</div>-->
+<!--    {{/if}}-->
+<!--</div>-->
