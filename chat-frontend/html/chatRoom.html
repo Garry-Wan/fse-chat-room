@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+    <!-- animsition CSS -->
+    <link rel="stylesheet" href="../css/animsition.min.css">
     <script src="../js/jquery-3.4.1.js"></script>
     <script src="../js/time/moment.js"></script>
     <title>FSE Chat Room</title>
@@ -156,10 +158,11 @@
     }
 </style>
 <body>
-<div class="container-fluid min-vh-100">
+<div class="container-fluid min-vh-100 animsition " >
     <div class="col-12">
         <h2 class="offset-4 col-4 text-center" style="display: inline-block">Chat Room</h2>
-        <button class="btn" id="sign-out" style="float:right">Log Out</button>
+        <button class="btn animsition-link" href="login.html" data-animsition-out="fade-out-left" data-animsition-out-duration="1500" id="sign-out" style="float:right">Log Out</button>
+<!--        class="animsition-link" href="./page1.html" data-animsition-out="fade-out-left"-->
     </div>
     <div class="top row">
         <div class="row col-2" id="online-user">
@@ -185,6 +188,10 @@
 <script type="text/javascript" src="../common/config.js"></script>
 <script type="text/javascript" src="../common/message.js"></script>
 <script type="text/javascript" src="../common/util.js"></script>
+
+<!--<script src="../js/animation/jquery-1.11.0.min.js"></script>-->
+<script src="../js/animation/jquery.animsition.min.js"></script>
+
 <script type="text/x-jquery-tmpl" id="message">
    {{if chat.username == "me"}}
            <div class="col-12 row me ">
@@ -270,9 +277,8 @@
                             "date": moment().format('MMMM Do YYYY, h:mm:ss')
                         },
                     }).appendTo("#chat")
-
                 }
-
+                 loadscorll('#chat')
             })
             $(".btn-send").click(function () {
                     var usermsg = $("#msg").val()
@@ -291,7 +297,7 @@
             $("#sign-out").click(function () {
                     // ws.on("")
                     ws.on('disconnect')
-                    window.location.href = "login.html"
+                    // window.location.href = "login.html"
                 },
             )
             axios.request({
@@ -325,14 +331,39 @@
                     showMessage("login fail," + res.data.message);
                 }
             })
-            // $(".info").scrollTop($('.info').height())
-            // $('.info').ready(function () {
-            //     $('.info').scrollTop($('.info').height());
-            // })
-
-
+        // loadscorll('#chat')
+        // let id ='#chat'
+        // var scrollHeight = $(id).prop("scrollHeight");
+        // $(id).animate({scrollTop:scrollHeight}, 400);
         }
     )
+
+    $(document).ready(function() {
+        loadscorll('#chat')
+        $(".animsition").animsition({
+
+            inClass               :   'fade-in',
+            outClass              :   'fade-out',
+            inDuration            :    1500,
+            outDuration           :    800,
+            linkElement           :   '.animsition-link',
+            // e.g. linkElement   :   'a:not([target="_blank"]):not([href^=#])'
+            loading               :    true,
+            loadingParentElement  :   'body', //animsition wrapper element
+            loadingClass          :   'animsition-loading',
+            unSupportCss          : [ 'animation-duration',
+                '-webkit-animation-duration',
+                '-o-animation-duration'
+            ],
+            //"unSupportCss" option allows you to disable the "animsition" in case the css property in the array is not supported by your browser.
+            //The default setting is to disable the "animsition" in a browser that does not support "animation-duration".
+
+            overlay               :   false,
+
+            overlayClass          :   'animsition-overlay-slide',
+            overlayParentElement  :   'body'
+        });
+    });
 </script>
 </body>
 </html>
