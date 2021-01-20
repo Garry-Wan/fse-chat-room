@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
-    <!-- animsition CSS -->
+    <!--     animsition CSS-->
     <link rel="stylesheet" href="../css/animsition.min.css">
     <script src="../js/jquery-3.4.1.js"></script>
     <script src="../js/time/moment.js"></script>
@@ -158,19 +158,16 @@
     }
 </style>
 <body>
-<div class="container-fluid min-vh-100 animsition " >
+<div class="container-fluid min-vh-100 animsition" style="animation-duration: 1.5s; opacity: 1;">
     <div class="col-12">
         <h2 class="offset-4 col-4 text-center" style="display: inline-block">Chat Room</h2>
-        <button class="btn animsition-link" href="login.html" data-animsition-out="fade-out-left" data-animsition-out-duration="1500" id="sign-out" style="float:right">Log Out</button>
-<!--        class="animsition-link" href="./page1.html" data-animsition-out="fade-out-left"-->
+        <button class="btn animsition-link" href="login.html" data-animsition-out="fade-out-left"
+                data-animsition-out-duration="1500" id="sign-out" style="float:right">Log Out
+        </button>
+        <!--        class="animsition-link" href="./page1.html" data-animsition-out="fade-out-left"-->
     </div>
     <div class="top row">
         <div class="row col-2" id="online-user">
-            <!--            <div class="text-center" style="border-bottom: 1px solid #000000" >-->
-            <!--                <div style="display: inline-block; font-size: 30px">ddd</div>-->
-            <!--                <div class="text-right" style="display: inline-block; font-size: 20px;" >111</div>-->
-            <!--            </div>-->
-
         </div>
         <div class="info offset-2 col-10 row" id="chat">
         </div>
@@ -200,7 +197,6 @@
                 <div class="time-text row text-right" style="direction: rtl">${chat.date}</div>
             </div>
             <div class="username-me">${chat.username}</div>
-
     {{else}}
          <div class="col-12 row other" style="padding-left: 5px; width: 400px">
                 <div class="username-other">${chat.username}</div>
@@ -211,9 +207,6 @@
         </div>
         {{/if}}
    </div>
-
-
-
 </script>
 
 <script type="text/x-jquery-tmpl" id="one-user">
@@ -221,9 +214,6 @@
         <div style="display: inline-block; font-size: 30px">${loginList.username}  </div>
         <div class="text-right" style="display: inline-block; font-size: 20px;" >${loginList.date}</div>
    </div>
-
-
-
 </script>
 <script>
     $(function () {
@@ -278,7 +268,7 @@
                         },
                     }).appendTo("#chat")
                 }
-                 loadscorll('#chat')
+                loadscorll('#chat')
             })
             $(".btn-send").click(function () {
                     var usermsg = $("#msg").val()
@@ -295,7 +285,6 @@
                 },
             )
             $("#sign-out").click(function () {
-                    // ws.on("")
                     ws.on('disconnect')
                     // window.location.href = "login.html"
                 },
@@ -327,60 +316,34 @@
                             }).appendTo("#chat")
                         }
                     }
+                    loadscorll('#chat')
                 } else {
                     showMessage("login fail," + res.data.message);
                 }
             })
-        // loadscorll('#chat')
-        // let id ='#chat'
-        // var scrollHeight = $(id).prop("scrollHeight");
-        // $(id).animate({scrollTop:scrollHeight}, 400);
+
+            $(".animsition").animsition({
+                inClass: 'fade-in',
+                outClass: 'fade-out',
+                inDuration: 1500,
+                outDuration: 800,
+                linkElement: '.animsition-link',
+                // e.g. linkElement   :   'a:not([target="_blank"]):not([href^=#])'
+                loading: false,
+                loadingParentElement: 'body', //animsition wrapper element
+                loadingClass: 'animsition-loading',
+                unSupportCss: ['animation-duration',
+                    '-webkit-animation-duration',
+                    '-o-animation-duration'
+                ],
+                //"unSupportCss" option allows you to disable the "animsition" in case the css property in the array is not supported by your browser.
+                //The default setting is to disable the "animsition" in a browser that does not support "animation-duration".
+                overlay: false,
+                overlayClass: 'animsition-overlay-slide',
+                overlayParentElement: 'body'
+            });
         }
     )
-
-    $(document).ready(function() {
-        loadscorll('#chat')
-        $(".animsition").animsition({
-
-            inClass               :   'fade-in',
-            outClass              :   'fade-out',
-            inDuration            :    1500,
-            outDuration           :    800,
-            linkElement           :   '.animsition-link',
-            // e.g. linkElement   :   'a:not([target="_blank"]):not([href^=#])'
-            loading               :    true,
-            loadingParentElement  :   'body', //animsition wrapper element
-            loadingClass          :   'animsition-loading',
-            unSupportCss          : [ 'animation-duration',
-                '-webkit-animation-duration',
-                '-o-animation-duration'
-            ],
-            //"unSupportCss" option allows you to disable the "animsition" in case the css property in the array is not supported by your browser.
-            //The default setting is to disable the "animsition" in a browser that does not support "animation-duration".
-
-            overlay               :   false,
-
-            overlayClass          :   'animsition-overlay-slide',
-            overlayParentElement  :   'body'
-        });
-    });
 </script>
 </body>
 </html>
-<!--{{if chat.username == "me"}}-->
-<!--<div class="col-12 row me" style="padding-left: 5px; width: 400px">-->
-<!--    <div class="username">${chat.username}</div>-->
-<!--    <div class="span col-10 text-left">-->
-<!--        <div class="msg-text row">${chat.message}</div>-->
-<!--        <div class="time-text row">${chat.date}</div>-->
-<!--    </div>-->
-<!--</div>-->
-<!--{{else}}-->
-<!--<div class="col-12 row other ">-->
-<!--    <div class="span text-right other-msg">-->
-<!--        <div class="msg-text row text-right" style="display:inline-block; text-align:right; width: 400px">${chat.message}</div>-->
-<!--        <div class="time-text row text-right" style="direction: rtl">${chat.date}</div>-->
-<!--    </div>-->
-<!--    <div class="username-other">${chat.username}</div>-->
-<!--    {{/if}}-->
-<!--</div>-->

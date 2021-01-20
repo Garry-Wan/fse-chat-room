@@ -18,8 +18,8 @@ function getvalue(data) {
     });
 }
 function loadscorll(id) {
-    var scrollHeight = "5000";
-    // var scrollHeight = $(id).prop("scrollHeight");
+
+     var scrollHeight = $(id).prop("scrollHeight");
+    // $(id).animate({scrollTop:$("#chat").height()}, 1000);
     $(id).animate({scrollTop:scrollHeight}, 1000);
-    
 }

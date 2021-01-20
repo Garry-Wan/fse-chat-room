@@ -2,9 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+
     <title>FSE Chat Room</title>
     <style>
         .container-fluid {
@@ -136,18 +137,17 @@
                 showMessage(" Please select agree terms")
                 return;
             }
-            let user = {username: username, email:email, password: password};
-            console.log("11111")
+            let user = {username: username, email: email, password: password};
             axios.request({
-                url:config.registerUser,
-                method:"post",
+                url: config.registerUser,
+                method: "post",
                 data: user
             }).then(res => {
-                if(res.data.code === 0){
+                if (res.data.code === 0) {
                     // showMessage("login success, Enter chat room");
-                    window.location.href="login.html"
-                }else {
-                    showMessage("register fail,"+res.data.message);
+                    window.location.href = "login.html"
+                } else {
+                    showMessage("register fail," + res.data.message);
                 }
             })
         })
