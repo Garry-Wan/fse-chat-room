@@ -1,13 +1,18 @@
 // require("../common/axios.js");
 // document.write("<script language=javascript src=’./socket.io.js’></script>");
-let baseUrl = 'http://localhost:8001'
+//localhost
+// let baseUrl = 'http://localhost:8001'
+// Aliyun
+let baseUrl = 'http://119.23.203.94:8001'
 const config = {
     findAll: baseUrl + '/user/login',
     loginUser: baseUrl + '/user/login',
     registerUser: baseUrl +'/user/create',
     updateUser: baseUrl + '/user/update',
     findAllMsg :baseUrl +'/message/findAllMsg',
-    websocketConnect: baseUrl + '/websocket/socketServer.do'
+    // localhost websocket
+   // websocketConnect: 'ws://localhost:8002'
+    websocketConnect: 'ws://119.23.203.94:8002'
 }
 
 // var ws = io('ws://localhost:8002');

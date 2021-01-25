@@ -13,9 +13,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="package.json" />
         <option value="JavaScript File" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -43,7 +43,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/common" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
     <property name="ts.external.directory.path" value="D:\Program Files\JetBrains\WebStorm 2020.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
@@ -52,10 +52,10 @@
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\code\fse-chat-room\chat-frontend\common" />
+      <recent name="E:\code\fse-chat-room\chat-frontend" />
+      <recent name="E:\code\fse-chat-room\chat-frontend\css" />
+      <recent name="E:\code\fse-chat-room\chat-frontend\js\animation" />
       <recent name="E:\code\fse-chat-room\common" />
-      <recent name="E:\code\1" />
-      <recent name="E:\code\fse-chat-room\js\login" />
-      <recent name="E:\code\fse-chat-room\js\network" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\code\fse-chat-room\common" />
@@ -115,6 +115,20 @@
       <workItem from="1610894932020" duration="1257000" />
       <workItem from="1610932361739" duration="21951000" />
       <workItem from="1610959199067" duration="42000" />
+      <workItem from="1610960128622" duration="11435000" />
+      <workItem from="1610971635611" duration="14336000" />
+      <workItem from="1610986598538" duration="92000" />
+      <workItem from="1610986700180" duration="119000" />
+      <workItem from="1611018441178" duration="20394000" />
+      <workItem from="1611047531199" duration="10563000" />
+      <workItem from="1611058965677" duration="192000" />
+      <workItem from="1611062833430" duration="3405000" />
+      <workItem from="1611066291763" duration="67000" />
+      <workItem from="1611066390221" duration="9000" />
+      <workItem from="1611104302726" duration="1244000" />
+      <workItem from="1611283183437" duration="8647000" />
+      <workItem from="1611363957764" duration="1020000" />
+      <workItem from="1611474601163" duration="8713000" />
     </task>
     <task id="LOCAL-00001" summary="add by Garry 2020">
       <created>1609162872837</created>
@@ -237,8 +251,9 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/html/chatRoom.html</url>
-          <line>233</line>
-          <option name="timeStamp" value="2" />
+          <line>308</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

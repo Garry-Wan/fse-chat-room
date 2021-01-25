@@ -70,7 +70,6 @@
         padding-left: 10px;
         height: 580px;
         overflow-y: scroll;
-
     }
 
     ul li {
@@ -161,7 +160,7 @@
 <div class="container-fluid min-vh-100 animsition" style="animation-duration: 1.5s; opacity: 1;">
     <div class="col-12">
         <h2 class="offset-4 col-4 text-center" style="display: inline-block">Chat Room</h2>
-        <button class="btn animsition-link" href="login.html" data-animsition-out="fade-out-left"
+        <button class="btn animsition-link" href="html/login.html" data-animsition-out="fade-out-left"
                 data-animsition-out-duration="1500" id="sign-out" style="float:right">Log Out
         </button>
         <!--        class="animsition-link" href="./page1.html" data-animsition-out="fade-out-left"-->
@@ -182,12 +181,11 @@
 <script type="text/javascript" src="../common/jquery.tmpl.js"></script>
 <script type="text/javascript" src="../common/axios.js"></script>
 <script src="../common/socket.io.js"></script>
+<script type="text/javascript" src="../common/httpUtil.js"></script>
 <script type="text/javascript" src="../common/config.js"></script>
 <script type="text/javascript" src="../common/message.js"></script>
-<script type="text/javascript" src="../common/util.js"></script>
-
-<!--<script src="../js/animation/jquery-1.11.0.min.js"></script>-->
 <script src="../js/animation/jquery.animsition.min.js"></script>
+<script type="text/javascript" src="../common/util.js"></script>
 
 <script type="text/x-jquery-tmpl" id="message">
    {{if chat.username == "me"}}
@@ -207,6 +205,8 @@
         </div>
         {{/if}}
    </div>
+
+
 </script>
 
 <script type="text/x-jquery-tmpl" id="one-user">
@@ -214,15 +214,19 @@
         <div style="display: inline-block; font-size: 30px">${loginList.username}  </div>
         <div class="text-right" style="display: inline-block; font-size: 20px;" >${loginList.date}</div>
    </div>
+
+
 </script>
 <script>
     $(function () {
-            var ws = io('ws://localhost:8002', {loginList: ['websocket']});
-            ws.on('connect', function (e) {
+           // init websocket
+            let ws = initWebsocket(config.websocketConnect)
+            websocketBind(ws,'connect',e =>{
                 console.log("server connect success");
                 ws.emit('login', {username: $.cookie("username")})
             })
-            ws.on('loginInfo', function (data) {
+           //load information when user login
+            websocketBind(ws,'loginInfo',data =>{
                 console.log("user login from server")
                 $("#online-user").empty();
                 $.each(JSON.parse(data), function (idx, obj) {
@@ -248,7 +252,8 @@
                     }
                 });
             })
-            ws.on('receiveMsg', function (data) {
+            // load new message when receive new message
+            websocketBind(ws,'receiveMsg',data =>{
                 console.log("receiveMsg from server")
                 if (data.username == $.cookie("username")) {
                     $("#message").tmpl({
@@ -268,9 +273,12 @@
                         },
                     }).appendTo("#chat")
                 }
-                loadscorll('#chat')
+                loadScorll('#chat')
+
             })
-            $(".btn-send").click(function () {
+
+            //host new message
+            $(".btn-send").click(() => {
                     var usermsg = $("#msg").val()
                     if (!usermsg) {
                         showMessage(" Please type information")
@@ -280,22 +288,20 @@
                         showMessage(" msg should not be empty")
                         return;
                     }
-                    ws.emit('sendMsg', {username: $.cookie("username"), msg: $("#msg").val()});
+                    websocketEmit(ws,'sendMsg', {username: $.cookie("username"), msg: $("#msg").val()})
                     $("#msg").val('')
                 },
             )
-            $("#sign-out").click(function () {
-                    ws.on('disconnect')
-                    // window.location.href = "login.html"
+            // login out
+            $("#sign-out").click(() => {
+                websocketDisconnect(ws)
                 },
             )
-            axios.request({
-                url: config.findAllMsg,
-                method: "get",
-            }).then(res => {
-                if (res.data.code === 0) {
+            //load all message when user log on the first time
+            get(config.findAllMsg,null).then(res => {
+                if (res.code === 0) {
                     console.log("receiveAllUserMsg from server")
-                    let data = res.data.data
+                    let data = res.data
                     for (let allMsg in data) {
                         if (data[allMsg].sender == $.cookie("username")) {
                             $("#message").tmpl({
@@ -316,32 +322,13 @@
                             }).appendTo("#chat")
                         }
                     }
-                    loadscorll('#chat')
+                    loadScorll('#chat')
                 } else {
-                    showMessage("login fail," + res.data.message);
+                    showMessage("login fail," + res.message);
                 }
             })
-
-            $(".animsition").animsition({
-                inClass: 'fade-in',
-                outClass: 'fade-out',
-                inDuration: 1500,
-                outDuration: 800,
-                linkElement: '.animsition-link',
-                // e.g. linkElement   :   'a:not([target="_blank"]):not([href^=#])'
-                loading: false,
-                loadingParentElement: 'body', //animsition wrapper element
-                loadingClass: 'animsition-loading',
-                unSupportCss: ['animation-duration',
-                    '-webkit-animation-duration',
-                    '-o-animation-duration'
-                ],
-                //"unSupportCss" option allows you to disable the "animsition" in case the css property in the array is not supported by your browser.
-                //The default setting is to disable the "animsition" in a browser that does not support "animation-duration".
-                overlay: false,
-                overlayClass: 'animsition-overlay-slide',
-                overlayParentElement: 'body'
-            });
+            // bind animation event
+            loadAnimation(1500,800)
         }
     )
 </script>

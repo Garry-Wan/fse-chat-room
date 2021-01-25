@@ -7,62 +7,73 @@
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
     <title>FSE Chat Room</title>
     <style>
-        .container-fluid{
+        .container-fluid {
             background-color: #F0F2F5;
         }
+
         .row {
             transform: translateY(30%);
             height: 390px;
         }
-        .left{
+
+        .left {
             display: flex;
             align-items: center;
         }
-        .right{
+
+        .right {
             display: flex;
             align-items: center;
         }
-        .form-horizontal{
+
+        .form-horizontal {
             border-radius: 10px;
             background-color: #FFFFFF;
         }
-        .inputName{
+
+        .inputName {
             height: 50px;
             border-radius: 10px;
             background-color: #E8F0FE;
             border-color: #1877F2;
             outline: none;
         }
-        .inputPassword{
+
+        .inputPassword {
             height: 50px;
             border-radius: 10px;
             background-color: #E8F0FE;
             border-color: #1877F2;
             outline: none;
         }
-        .login{
+
+        .login {
             display: flex;
             justify-content: center;
             margin-top: 20px;
             height: 50px;
         }
-        .btn-login{
+
+        .btn-login {
             width: 95%;
             height: 100%;
             font-size: 25px;
             background-color: #166FE5;
             border-radius: 9px;
         }
-        .forgot-password{
+
+        .forgot-password {
             display: flex;
             justify-content: center;
             margin-top: 10px;
         }
-        .account{
+
+        .account {
             display: flex;
             justify-content: center;
         }
-        .btn-account{
+
+        .btn-account {
             width: 60%;
             height: 50px;
             margin-bottom: 10px;
@@ -91,7 +102,8 @@
                 <div class="control-group">
                     <label class="control-label" for="inputPassword"></label>
                     <span class="controls">
-                        <input class="col-lg-12 inputPassword" id="inputPassword" type="password" placeholder="password"/>
+                        <input class="col-lg-12 inputPassword" id="inputPassword" type="password"
+                               placeholder="password"/>
                     </span>
                 </div>
                 <div class="login">
@@ -102,7 +114,8 @@
                 </div>
                 <hr color="#6f5499"/>
                 <div class="account">
-                    <button type="button" class="btn btn-success btn-account" id="btn-account">Creat new Account</button>
+                    <button type="button" class="btn btn-success btn-account" id="btn-account">Creat new Account
+                    </button>
                 </div>
             </form>
         </div>
@@ -114,38 +127,36 @@
 <script type="text/javascript" src="../common/axios.js"></script>
 <script type="text/javascript" src="../common/message.js"></script>
 <script type="text/javascript" src="../common/config.js"></script>
+<script type="text/javascript" src="../common/httpUtil.js"></script>
 <script type="text/javascript">
     $(function () {
         $("#login").click(function () {
             // var li =
             let username = $("#inputName").val();
             let uPassword = $("#inputPassword").val();
-            if (!username){
+            if (!username) {
                 showMessage(" Username should not be empty")
                 return;
             }
-            if (!uPassword){
+            if (!uPassword) {
                 showMessage(" Password should not be empty")
                 return;
             }
-            let user = {username:username, password:uPassword};
-            axios.request({
-                url: config.loginUser,
-                method: "post",
-                data: user
-            }).then(res => {
-                if(res.data.code === 0){
-                    // showMessage("login success, Enter chat room");
-                    $.cookie("username", res.data.data.username)
-                    window.location.href="chatRoom.html"
+            let user = {username: username, password: uPassword};
 
-                }else {
-                    showMessage("login fail,"+res.data.message);
+            post(config.loginUser,user,null).then(res => {
+                if (res.code === 0) {
+                    // showMessage("login success, Enter chat room");
+                    $.cookie("username", res.data.username)
+                    window.location.href = "html/chatRoom.html"
+
+                } else {
+                    showMessage("login fail," + res.message);
                 }
             })
         })
         $("#btn-account").click(function () {
-            window.location.href="signUp.html"
+            window.location.href = "html/signUp.html"
         })
     })
 </script>
