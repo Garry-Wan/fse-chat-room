@@ -54,6 +54,17 @@ websocket.onConnection(io, (conn) => {
             }
         })
     })
+    msg.get('/findAllMsg', ((req, res) => {
+        db.findAllMsg((err, doc) => {
+            if (err) {
+                res.send(JSON.stringify(util.failMessage(err.message)))
+            } else {
+                res.send(JSON.stringify(util.success(doc)))
+            }
+        })
+    }))
+
+    module.exports = msg
     // conn.on('sendMsg', function (data) {
     //     io.emit('receiveMsg', data)
     //     db.createMsg(data, (err, doc) => {
@@ -117,15 +128,5 @@ websocket.onConnection(io, (conn) => {
 // })
 
 
-msg.get('/findAllMsg', ((req, res) => {
-    db.findAllMsg((err, doc) => {
-        if (err) {
-            res.send(JSON.stringify(util.failMessage(err.message)))
-        } else {
-            res.send(JSON.stringify(util.success(doc)))
-        }
-    })
-}))
 
-module.exports = msg
 

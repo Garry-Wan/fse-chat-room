@@ -81,14 +81,15 @@ db.createMsg =function (data,callback) {
     let dbMsg = Msg.create(senderMsg, callback)
     console.log(dbMsg)
 }
-
-db.getUser =function (username,callback) {
-    User.findOne({username: username},callback)
-}
 db.findAllUser = function (callback) {
     User.find({},callback)
 }
+
 db.findAllMsg = function (callback) {
     Msg.find({},callback)
+}
+
+db.getUser =function (username,callback) {
+    User.findOne({username: username},callback)
 }
 module.exports = db;

@@ -14,6 +14,8 @@
  Server side:
     node.js
     express.js
-    mongodb
+    mongodb 
+ log out animation import url address:
+ http://www.htmleaf.com/jQuery/Layout-Interface/201503251572.html
  
  

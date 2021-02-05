@@ -148,7 +148,7 @@
                 if (res.code === 0) {
                     // showMessage("login success, Enter chat room");
                     $.cookie("username", res.data.username)
-                    window.location.href = "html/chatRoom.html"
+                    window.location.href = "/html/chatRoom.html"
 
                 } else {
                     showMessage("login fail," + res.message);
@@ -156,7 +156,7 @@
             })
         })
         $("#btn-account").click(function () {
-            window.location.href = "html/signUp.html"
+            window.location.href = "/html/signUp.html"
         })
     })
 </script>

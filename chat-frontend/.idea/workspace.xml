@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="25fb6fbf-7db5-44e6-848f-6e87a08a257c" name="Default Changelist" comment="modify file name">
+      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../chat-server/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../chat-server/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../chat-server/model/creatdb.js" beforeDir="false" afterPath="$PROJECT_DIR$/../chat-server/model/creatdb.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../chat-server/routes/user/message.js" beforeDir="false" afterPath="$PROJECT_DIR$/../chat-server/routes/user/message.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -129,6 +131,10 @@
       <workItem from="1611283183437" duration="8647000" />
       <workItem from="1611363957764" duration="1020000" />
       <workItem from="1611474601163" duration="8713000" />
+      <workItem from="1611568017598" duration="3708000" />
+      <workItem from="1611739667104" duration="2641000" />
+      <workItem from="1612056962831" duration="6278000" />
+      <workItem from="1612504231029" duration="266000" />
     </task>
     <task id="LOCAL-00001" summary="add by Garry 2020">
       <created>1609162872837</created>
@@ -251,8 +257,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/html/chatRoom.html</url>
-          <line>308</line>
-          <properties lambdaOrdinal="-1" />
+          <line>309</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>
